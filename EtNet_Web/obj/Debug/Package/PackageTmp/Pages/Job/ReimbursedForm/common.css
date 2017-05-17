@@ -1,0 +1,92 @@
+﻿.topTitle
+{
+    background: url('../../../Images/public/title_hover.png') no-repeat;
+    text-align: left;
+    height: 25px;
+    line-height: 25px;
+}
+.topTitle span
+{
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    width: 80px;
+    display: inline-block;
+    text-align: center;
+}
+.wrapper
+{
+    font-size: 12px;
+    border: 1px solid #4CB0D5;
+    border-top-width: 4px;
+    padding: 10px 10px 10px 10px;
+    overflow: auto;
+    width:100%;
+    
+}
+.buttonBox
+{
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+.content
+{
+    border: 1px solid #CDC9C9;
+}
+input.inputLine
+{
+    border: 0px;
+    border-bottom: 1px solid #C6E2FF;
+}
+.inputLine
+{
+    width: 200px;
+}
+input.readonly
+{
+    background-color: #F1F2F3;
+}
+input.Wdate
+{
+    cursor: pointer;
+}
+caption
+{
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    background-color: #E6E6E6; /*#F0F0F0;*/
+    border: 1px solid #F1F1F1; /*#999B9C;*/
+}
+a, input
+{
+    outline: none;
+}
+intput, textarea
+{
+    font-size: 13px;
+    font-family: 宋体;
+}
+a
+{
+    text-decoration: none;
+}
+a img
+{
+    border: none;
+}
+.splitLine
+{
+    height: 1px;
+    border-top: 1px solid #4CB0D5;
+    text-align: center;
+}
+.splitLine span
+{
+    position: relative;
+    top: -8px;
+    background: #fff;
+    padding: 0 20px;
+}

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BB3F02D5-093D-4592-9838-4B53E3AA4D30}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json.Net20">
+      <HintPath>..\WebUI\bin\Newtonsoft.Json.Net20.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cache\CacheInMemory.cs" />
+    <Compile Include="ClientInfo.cs" />
+    <Compile Include="Directory.cs" />
+    <Compile Include="HtmlTag.cs" />
+    <Compile Include="HttpProc.cs" />
+    <Compile Include="JsonHelper.cs" />
+    <Compile Include="MessageBox.cs" />
+    <Compile Include="PageValidate.cs" />
+    <Compile Include="page\Alert.cs" />
+    <Compile Include="control\CheckBox.cs" />
+    <Compile Include="ConfigHelper.cs" />
+    <Compile Include="DataCache.cs" />
+    <Compile Include="page\WebConfig.cs" />
+    <Compile Include="page\Description.cs" />
+    <Compile Include="Encryption\Encryption.cs" />
+    <Compile Include="control\DropdownList.cs" />
+    <Compile Include="page\HtmlRemove.cs" />
+    <Compile Include="page\Loading.cs" />
+    <Compile Include="LoadJsControl.cs" />
+    <Compile Include="page\URL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QQ.cs" />
+    <Compile Include="RMB.cs" />
+    <Compile Include="SendMail.cs" />
+    <Compile Include="control\UploadFile.cs" />
+    <Compile Include="control\ValidateCode.cs" />
+    <Compile Include="page\WebState.cs" />
+    <Compile Include="StringFormat.cs" />
+    <Compile Include="StringPlus.cs" />
+    <Compile Include="UrlOper.cs" />
+    <Compile Include="xml\Xml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HttpModule\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

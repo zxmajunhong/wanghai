@@ -1,0 +1,31 @@
+﻿.page
+{
+    font-size: 12px;
+    margin-top:5px;
+}
+.pageleft{ margin-right:4px; color:#003;}
+.pageleft strong{ padding:0px 3px;}
+.page .page_btn span, .page .page_btn a, .page .page_now, .page a
+{
+    display: inline-block;
+    border: 1px solid #dcdcdc;
+    height: 21px;
+    line-height: 21px;
+    padding: 0 7px;
+    margin-right: 5px;
+    color: #61BEFE;
+    text-decoration: none;
+}
+.page .page_now /* 当前页 */
+{
+    background: #61BEFE;
+    border: solid 1px #61BEFE;
+    color: #ffffff;
+    font-weight: bold;
+}
+.page a:hover
+{
+    border: 1px solid #61BEFE;
+    background: #61BEFE;
+    color: #ffffff;
+}

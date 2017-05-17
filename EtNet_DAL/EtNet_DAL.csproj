@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C3B1CF5-BD2F-4801-98FA-36626EDBA8E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EtNet_DAL</RootNamespace>
+    <AssemblyName>EtNet_DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressListInfoService.cs" />
+    <Compile Include="AnnouncementFilesService.cs" />
+    <Compile Include="AnnouncementInfoService.cs" />
+    <Compile Include="AnnouncementLogService.cs" />
+    <Compile Include="AnnouncementSortService.cs" />
+    <Compile Include="AnnouncementStatusService.cs" />
+    <Compile Include="ApprovalRuleService.cs" />
+    <Compile Include="AuditJobFlowService.cs" />
+    <Compile Include="AusBillStateService.cs" />
+    <Compile Include="AusDetialInfoManager.cs" />
+    <Compile Include="AusDetialInfoService.cs" />
+    <Compile Include="AusFinInfoService.cs" />
+    <Compile Include="AusItemInfoService.cs" />
+    <Compile Include="AusMoneyService.cs" />
+    <Compile Include="AusOrderInfoService.cs" />
+    <Compile Include="AusrottenInfoService.cs" />
+    <Compile Include="AusTypeInfoService.cs" />
+    <Compile Include="CalendarsService.cs" />
+    <Compile Include="FactBankService.cs" />
+    <Compile Include="FactLinkmanService.cs" />
+    <Compile Include="FactoryService.cs" />
+    <Compile Include="FactTypeService.cs" />
+    <Compile Include="IncomeTypeService.cs" />
+    <Compile Include="InformationFileService.cs" />
+    <Compile Include="InformationSortService.cs" />
+    <Compile Include="InitializeSetService.cs" />
+    <Compile Include="InitializeUserSetService.cs" />
+    <Compile Include="InvoiceRecordDetailService.cs" />
+    <Compile Include="InvoiceRecordService.cs" />
+    <Compile Include="LoginOperationLimitService.cs" />
+    <Compile Include="LoginProdRateService.cs" />
+    <Compile Include="PictureFolderInfoService.cs" />
+    <Compile Include="PictureInfoService.cs" />
+    <Compile Include="RegPaymentInvoiceService.cs" />
+    <Compile Include="RegPaymentService.cs" />
+    <Compile Include="RegReimbursementService.cs" />
+    <Compile Include="ReimbursementInvoiceService.cs" />
+    <Compile Include="Tb_lineService.cs" />
+    <Compile Include="To_ClaimDetailService.cs" />
+    <Compile Include="To_ClaimService.cs" />
+    <Compile Include="To_CollectingService.cs" />
+    <Compile Include="To_IncomeService.cs" />
+    <Compile Include="To_InvoiceDetialService.cs" />
+    <Compile Include="To_InvoiceService.cs" />
+    <Compile Include="To_OrderCollectDetialService.cs" />
+    <Compile Include="To_OrderInfoService.cs" />
+    <Compile Include="To_OrderPayDetialService.cs" />
+    <Compile Include="To_OrderRefunDetialService.cs" />
+    <Compile Include="To_OrderReimDetialService.cs" />
+    <Compile Include="To_OutcomeService.cs" />
+    <Compile Include="To_PaymentDetailService.cs" />
+    <Compile Include="To_PaymentReturnService.cs" />
+    <Compile Include="To_PaymentService.cs" />
+    <Compile Include="To_PolicyBudgetService.cs" />
+    <Compile Include="ComBankService.cs" />
+    <Compile Include="ComLinkmanService.cs" />
+    <Compile Include="CommissionListService.cs" />
+    <Compile Include="CompanyProdService.cs" />
+    <Compile Include="CompanyService.cs" />
+    <Compile Include="ComTypeService.cs" />
+    <Compile Include="CusBankService.cs" />
+    <Compile Include="CusLinkmanService.cs" />
+    <Compile Include="CustomerService.cs" />
+    <Compile Include="CusTypeService.cs" />
+    <Compile Include="DBHelper.cs" />
+    <Compile Include="DepartmentInfoService.cs" />
+    <Compile Include="FirmAccountInfoService.cs" />
+    <Compile Include="FirmInfoService.cs" />
+    <Compile Include="InformationNoticeService..cs" />
+    <Compile Include="InformationService.cs" />
+    <Compile Include="JobAuditStatusService.cs" />
+    <Compile Include="JobFlowFileService.cs" />
+    <Compile Include="JobFlowService.cs" />
+    <Compile Include="JobFlowSortService.cs" />
+    <Compile Include="LoginDataLimitServices.cs" />
+    <Compile Include="LoginInfoService.cs" />
+    <Compile Include="LoginLimitService.cs" />
+    <Compile Include="LoginUserLimitService.cs" />
+    <Compile Include="MenuService.cs" />
+    <Compile Include="ModuleCodingInfoService.cs" />
+    <Compile Include="NoticeInfoManager.cs" />
+    <Compile Include="NoticeInfoService.cs" />
+    <Compile Include="NoticeShareManager.cs" />
+    <Compile Include="NoticeShareService.cs" />
+    <Compile Include="PanelMenuListService.cs" />
+    <Compile Include="PanelMenuRecordService.cs" />
+    <Compile Include="PanelMenuService.cs" />
+    <Compile Include="ParameterService.cs" />
+    <Compile Include="To_PolicyFileService.cs" />
+    <Compile Include="To_PolicyTargetService.cs" />
+    <Compile Include="ProdClassService.cs" />
+    <Compile Include="ProductService.cs" />
+    <Compile Include="ProductTypeService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatioService.cs" />
+    <Compile Include="RoleInfoService.cs" />
+    <Compile Include="SearchPageSetService.cs" />
+    <Compile Include="SortInfoService.cs" />
+    <Compile Include="StaffExperienceService.cs" />
+    <Compile Include="StaffInfoService.cs" />
+    <Compile Include="StaffLanguageLevelService.cs" />
+    <Compile Include="StaffNationSortService.cs" />
+    <Compile Include="StaffPapersSortService.cs" />
+    <Compile Include="SysdiagramsService.cs" />
+    <Compile Include="TargetEnumService.cs" />
+    <Compile Include="TargetPropertyService.cs" />
+    <Compile Include="TargetTypeService.cs" />
+    <Compile Include="To_PolicyDetailService.cs" />
+    <Compile Include="To_PolicyService.cs" />
+    <Compile Include="To_PostService.cs" />
+    <Compile Include="To_ReceiptLimitService.cs" />
+    <Compile Include="ViewBudgetIncomeService.cs" />
+    <Compile Include="ViewCustomerService.cs" />
+    <Compile Include="ViewDAL\ViewAddressListService.cs" />
+    <Compile Include="ViewDAL\ViewAnnouncementInfoService.cs" />
+    <Compile Include="ViewDAL\ViewAnnouncementLogService.cs" />
+    <Compile Include="ViewDAL\ViewApprovalRuleService.cs" />
+    <Compile Include="ViewDAL\ViewAuditJobFlowService.cs" />
+    <Compile Include="ViewDAL\ViewAusRottenInfoService.cs" />
+    <Compile Include="ViewDAL\ViewDocumentShareService.cs" />
+    <Compile Include="ViewDAL\ViewInformationNoticeService.cs" />
+    <Compile Include="ViewDAL\ViewInformationService.cs" />
+    <Compile Include="ViewDAL\ViewJobFlowService.cs" />
+    <Compile Include="ViewDAL\ViewPictureService.cs" />
+    <Compile Include="ViewDAL\ViewStaffInfoService.cs" />
+    <Compile Include="ViewInformationNoticeService.cs" />
+    <Compile Include="ViewMenuByLoginService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EtNet_Models\EtNet_Models.csproj">
+      <Project>{EC4A45F0-33CF-42EA-9A15-055923616270}</Project>
+      <Name>EtNet_Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

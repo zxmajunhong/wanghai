@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E58F9763-27AD-4C0A-94F5-E326FADD4F66}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EtNet_BLL</RootNamespace>
+    <AssemblyName>EtNet_BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressListInfoManager.cs" />
+    <Compile Include="AnnouncementFilesManager.cs" />
+    <Compile Include="AnnouncementInfoManager.cs" />
+    <Compile Include="AnnouncementLogManager.cs" />
+    <Compile Include="AnnouncementSortManager.cs" />
+    <Compile Include="AnnouncementStatusManager.cs" />
+    <Compile Include="ApprovalRuleManager.cs" />
+    <Compile Include="AuditJobFlowManager.cs" />
+    <Compile Include="AusBillStateManager.cs" />
+    <Compile Include="AusDetialInfoManager.cs" />
+    <Compile Include="AusFinInofoManager.cs" />
+    <Compile Include="AusItemInfoManager.cs" />
+    <Compile Include="AusMoneyManager.cs" />
+    <Compile Include="AusOrderInfoManager.cs" />
+    <Compile Include="AusrottenInfoManager.cs" />
+    <Compile Include="AusTypeInfoManager.cs" />
+    <Compile Include="CalendarsManager.cs" />
+    <Compile Include="CodeMD5.cs" />
+    <Compile Include="FactBankManager.cs" />
+    <Compile Include="FactLinkmanManager.cs" />
+    <Compile Include="FactoryManager.cs" />
+    <Compile Include="FactTypeManager.cs" />
+    <Compile Include="IncomeTypeManager.cs" />
+    <Compile Include="To_IncomeManager.cs" />
+    <Compile Include="InformationFileManager.cs" />
+    <Compile Include="InformationSortManager.cs" />
+    <Compile Include="InitializeSetManager.cs" />
+    <Compile Include="InitializeUserSetManager.cs" />
+    <Compile Include="InvoiceRecordDetailManager.cs" />
+    <Compile Include="InvoiceRecordManager.cs" />
+    <Compile Include="LoginOperationLimitManager.cs" />
+    <Compile Include="LoginProdRateManager.cs" />
+    <Compile Include="PictureFolderInfoManager.cs" />
+    <Compile Include="PictureInfoManager.cs" />
+    <Compile Include="RegPaymentInvoiceManager.cs" />
+    <Compile Include="RegPaymentManager.cs" />
+    <Compile Include="RegReimbursementManager.cs" />
+    <Compile Include="ReimbursementInvoiceManager.cs" />
+    <Compile Include="Tb_lineManager.cs" />
+    <Compile Include="To_ClaimDetailManager.cs" />
+    <Compile Include="To_ClaimManager.cs" />
+    <Compile Include="To_CollectingManager.cs" />
+    <Compile Include="To_InvoiceDetialManager.cs" />
+    <Compile Include="To_InvoiceManager.cs" />
+    <Compile Include="To_OrderCollectDetialManager.cs" />
+    <Compile Include="To_OrderInfoManager.cs" />
+    <Compile Include="To_OrderPayDetialManager.cs" />
+    <Compile Include="To_OrderRefunDetialManager.cs" />
+    <Compile Include="To_OrderReimDetialManager.cs" />
+    <Compile Include="To_OutcomeManager.cs" />
+    <Compile Include="To_PaymentDetailManager.cs" />
+    <Compile Include="To_PaymentManager.cs" />
+    <Compile Include="To_PaymentReturnManager.cs" />
+    <Compile Include="To_PolicyBudgetManager.cs" />
+    <Compile Include="ComBankManager.cs" />
+    <Compile Include="ComLinkmanManager.cs" />
+    <Compile Include="CommissionListManager.cs" />
+    <Compile Include="CompanyManager.cs" />
+    <Compile Include="CompanyProdManager.cs" />
+    <Compile Include="ComTypeManager.cs" />
+    <Compile Include="CusBankManager.cs" />
+    <Compile Include="CusLinkmanManager.cs" />
+    <Compile Include="CustomerManager.cs" />
+    <Compile Include="CusTypeManager.cs" />
+    <Compile Include="DataPage\Data.cs" />
+    <Compile Include="DepartmentInfoManager.cs" />
+    <Compile Include="FirmAccountInfoManager.cs" />
+    <Compile Include="FirmInfoManager.cs" />
+    <Compile Include="HtmlGenericControl.cs" />
+    <Compile Include="InformationManager.cs" />
+    <Compile Include="InformationNoticeManager.cs" />
+    <Compile Include="JobAuditStatusManager.cs" />
+    <Compile Include="JobFlowFileManager.cs" />
+    <Compile Include="JobFlowManager.cs" />
+    <Compile Include="JobFlowSortManager.cs" />
+    <Compile Include="LoginDataLimitManager.cs" />
+    <Compile Include="LoginInfoManager.cs" />
+    <Compile Include="LoginLimitManager.cs" />
+    <Compile Include="LoginUserLimitManager.cs" />
+    <Compile Include="MenuManager.cs" />
+    <Compile Include="ModuleCodingInfoManager.cs" />
+    <Compile Include="NoticeInfoManager.cs" />
+    <Compile Include="NoticeShareManager.cs" />
+    <Compile Include="PanelMenuListManager.cs" />
+    <Compile Include="PanelMenuManager.cs" />
+    <Compile Include="PanelMenuRecordManager.cs" />
+    <Compile Include="ParameterManager.cs" />
+    <Compile Include="To_PolicyFileManager.cs" />
+    <Compile Include="To_PolicyTargetManager.cs" />
+    <Compile Include="ProdClassManager.cs" />
+    <Compile Include="ProductManager.cs" />
+    <Compile Include="ProductTypeManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatioManager.cs" />
+    <Compile Include="RoleInfoManager.cs" />
+    <Compile Include="SearchPageSetManager.cs" />
+    <Compile Include="SortInfoManager.cs" />
+    <Compile Include="StaffExperienceManager.cs" />
+    <Compile Include="StaffInfoManager.cs" />
+    <Compile Include="StaffLanguageLevelManager.cs" />
+    <Compile Include="StaffNationSortManager.cs" />
+    <Compile Include="StaffPapersSortManager.cs" />
+    <Compile Include="SysdiagramsManager.cs" />
+    <Compile Include="TargetEnumManager.cs" />
+    <Compile Include="TargetPropertyManager.cs" />
+    <Compile Include="TargetTypeManager.cs" />
+    <Compile Include="To_PolicyDetailManager.cs" />
+    <Compile Include="To_PolicyManager.cs" />
+    <Compile Include="To_PostManager.cs" />
+    <Compile Include="To_ReceiptLimitManager.cs" />
+    <Compile Include="ViewBLL\ViewAddressListManager.cs" />
+    <Compile Include="ViewBLL\ViewAnnouncementInfoManager.cs" />
+    <Compile Include="ViewBLL\ViewApprovalRuleManager.cs" />
+    <Compile Include="ViewBLL\ViewAuditJobFlowManager.cs" />
+    <Compile Include="ViewBLL\ViewAusRottenInfoManager.cs" />
+    <Compile Include="ViewBLL\ViewDocumentShareManager.cs" />
+    <Compile Include="ViewBLL\ViewInformationManager.cs" />
+    <Compile Include="ViewBLL\ViewInformationNoticeManager.cs" />
+    <Compile Include="ViewBLL\ViewJobFlowManager.cs" />
+    <Compile Include="ViewBLL\ViewPictureManager.cs" />
+    <Compile Include="ViewBLL\ViewStaffInfoManager.cs" />
+    <Compile Include="ViewBudgetIncomeManager.cs" />
+    <Compile Include="ViewCustomerManager.cs" />
+    <Compile Include="ViewInformationNoticeManager.cs" />
+    <Compile Include="ViewMenuByLoginManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{BB3F02D5-093D-4592-9838-4B53E3AA4D30}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbAccess\DbAccess.csproj">
+      <Project>{3B5D2001-1F5C-4925-B05E-A201B672749E}</Project>
+      <Name>DbAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{B43F3402-A312-45FB-B72B-5FDF8FBBB826}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EtNet_DAL\EtNet_DAL.csproj">
+      <Project>{2C3B1CF5-BD2F-4801-98FA-36626EDBA8E2}</Project>
+      <Name>EtNet_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EtNet_Models\EtNet_Models.csproj">
+      <Project>{EC4A45F0-33CF-42EA-9A15-055923616270}</Project>
+      <Name>EtNet_Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

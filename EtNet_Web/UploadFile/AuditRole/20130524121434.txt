@@ -1,0 +1,16 @@
+<div id="auditimg" style=" padding:20px; font-size:14px; ">
+<table cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><div id="start" style="border:1px solid #C6E2FF;padding:10px;">申请人</div></td>
+<td><div class="clsrline" style=" background-image:url('../../../Images/AuditRole/rline.png'); height:20px; width:60px;"></div></td>
+<td><div class="clsrarrow" style=" background-image:url('../../../Images/AuditRole/rarrow.png');height:20px; width:20px;"></div></td>
+<td><div class="cls1" id="replace1" style="border:1px solid #C6E2FF; text-align:center; padding:10px; width:80px;">业务员<br>(系统管理员)</div></td>
+<td><div class="clsrline" style=" background-image:url('../../../Images/AuditRole/rline.png'); height:20px; width:60px;"></div></td>
+<td><div class="clsrarrow" style=" background-image:url('../../../Images/AuditRole/rarrow.png');height:20px; width:20px;"></div></td>
+<td><div class="cls37" id="replace2" style="border:1px solid #C6E2FF; text-align:center; padding:10px; width:80px;">业务员<br>(何琴音)</div></td>
+<td><div class="clsrline" style=" background-image:url('../../../Images/AuditRole/rline.png'); height:20px; width:60px;"></div></td>
+<td><div class="clsrarrow" style=" background-image:url('../../../Images/AuditRole/rarrow.png'); height:20px; width:20px;"></div></td>
+<td><div id="end" style="border:1px solid #C6E2FF; padding:10px;">审核结束</div></td>
+</tr> 
+</tbody></table>
+</div>

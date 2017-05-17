@@ -1,0 +1,27 @@
+﻿*{font-size:12px !important;}
+        td{font-size:12px !important;}
+        .content{margin-bottom:20px;padding-bottom:5px;padding-left:5px;padding-right:5px;}
+        .content caption{background-color:#fff;border:0px;}
+        table.dataBox{width:100%;}
+        td.fieldTitle{width:120px;text-align:right;color:#444;min-width:120px;text-align: right;}
+        table.dataBox td{padding:5px;}
+        table.dataBox td.fieldTitle{font-family: 宋体;font-weight:bold;color: #333;border-right: 1px solid #C1DAD7;border-bottom: 1px solid #C1DAD7;border-top: 1px solid #C1DAD7;letter-spacing: 2px;text-transform: uppercase;padding: 6px 6px 6px 12px;}
+        .lineTable td{border: 1px solid #C1DAD7;padding-left:5px;}
+        .lineTable tr{height:20px;line-height:20px;}
+        .lineTable{border: 1px solid #4f6b72;width: 100%;padding: 0;margin: 0;border-collapse: collapse;color: #000000;}
+        
+        .clstitleimg{background-image: url('../../../Images/public/list_tit.png');color: White;height: 24px;font-weight: bold;text-align: center;}
+        .dataBox{border: 1px none #4f6b72;width: 100%;padding: 0;margin: 0;border-collapse: collapse;color: black;}
+        #mytable2{border-collapse: collapse;width: 100%;}
+        #mytable2 tr{background-color: #FFFFFF;}
+        #mytable2 th{border: 1px solid #DED6DC;}
+        #mytable2 tr td{border: 1px solid #DED6DC;height: 24px;text-align: center;}
+        tr.payDetail td.sum-title{text-align:left;}
+        tr.payDetail td.sumBox{text-align:center;}
+        
+        div.buttonBox{position:absolute;top:10px;right:20px;}
+        div.topTitle{background:none;width:100%;text-align:center;}
+        div.topTitle span{color:#000;font-size:13px;width:100%;}
+        div#printBox{width:210mm;padding:0px 5px 0px 5px;}
+        
+        tr.payDetail td{text-align:center;}

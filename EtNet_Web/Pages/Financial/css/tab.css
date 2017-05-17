@@ -1,0 +1,36 @@
+﻿BODY {
+	FONT-SIZE: 14px; FONT-FAMILY: "宋体"
+}
+OL LI {
+	MARGIN: 8px
+}
+#con {
+	FONT-SIZE: 12px; MARGIN: 0px auto; WIDTH: 100%;
+}
+#tags {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 0px 10px; WIDTH: auto; PADDING-TOP: 0px; HEIGHT: 23px
+}
+#tags LI {
+	BACKGROUND: url(../../../images/public/tagleft.gif) no-repeat left bottom; FLOAT: left; MARGIN-RIGHT: 1px; LIST-STYLE-TYPE: none; HEIGHT: 23px
+}
+#tags LI A {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND: url(../../../images/public/tagright.gif) no-repeat right bottom; FLOAT: left; PADDING-BOTTOM: 0px; COLOR: #999; LINE-HEIGHT: 23px; PADDING-TOP: 0px; HEIGHT: 23px; TEXT-DECORATION: none
+}
+#tags LI.emptyTag {
+	BACKGROUND: none transparent scroll repeat 0% 0%; WIDTH: 4px
+}
+#tags LI.selectTag {
+	BACKGROUND-POSITION: left top; MARGIN-BOTTOM: -2px; POSITION: relative; HEIGHT: 25px
+}
+#tags LI.selectTag A {
+	BACKGROUND-POSITION: right top; COLOR: #000; LINE-HEIGHT: 25px; HEIGHT: 25px
+}
+#tagContent {
+	BORDER-RIGHT: #aecbd4 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #aecbd4 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: #aecbd4 1px solid; PADDING-TOP: 1px; BORDER-BOTTOM: #aecbd4 1px solid; BACKGROUND-COLOR: #fff;width:auto;
+}
+.tagContent {
+	DISPLAY: none;WIDTH: 100%; COLOR: #474747;HEIGHT:auto
+}
+#tagContent DIV.selectTag {
+	DISPLAY: block
+}

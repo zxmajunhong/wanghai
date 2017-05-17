@@ -1,0 +1,49 @@
+﻿.paginator
+{
+    font: 12px Arial, Helvetica, sans-serif;
+    padding: 5px;
+    margin: 0px;
+}
+.paginator a
+{
+    border: solid 1px #ccc;
+    color: #0063dc;
+    cursor: pointer;
+    text-decoration: none;
+}
+.paginator a:visited
+{
+    padding: 1px 6px;
+    border: solid 1px #61befe;
+    background: #61befe;
+    color: #fff;
+    text-decoration: none;
+}
+.paginator .cpb
+{
+    border: 1px solid #61befe;
+    font-weight: 700;
+    color: #fff;
+    background-color: #61befe;
+}
+.paginator a:hover
+{
+    border: solid 1px #61befe;
+    color: #fff;
+    background: #61befe;
+    text-decoration: none;
+}
+.paginator a, .paginator a:visited, .paginator .cpb, .paginator a:hover
+{
+    float: left;
+    height: 21px;
+    line-height: 21px;
+    min-width: 10px;
+    _width: 10px;
+    margin-right: 5px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 12px;
+    font-family: Arial,SimSun;
+    padding: 0 4px;
+}

@@ -1,0 +1,16 @@
+<div style="padding: 20px; font-size: 14px;" id="auditimg">
+<table cellSpacing="0" cellPadding="0">
+<tbody><tr>
+<td><div style="padding: 10px; border: 1px solid rgb(198, 226, 255);" id="start">申请人</div></td>
+<td><div style='width: 60px; height: 20px; background-image: url("../../../Images/AuditRole/rline.png");' class="clsrline"></div></td>
+<td><div style='width: 20px; height: 20px; background-image: url("../../../Images/AuditRole/rarrow.png");' class="clsrarrow"></div></td>
+<td><div style="padding: 10px; border: 1px solid rgb(198, 226, 255); width: 80px; text-align: center;" id="replace1">啊啊</div></td>
+<td><div style='width: 60px; height: 20px; background-image: url("../../../Images/AuditRole/rline.png");' class="clsrline"></div></td>
+<td><div style='width: 20px; height: 20px; background-image: url("../../../Images/AuditRole/rarrow.png");' class="clsrarrow"></div></td>
+<td><div style="padding: 10px; border: 1px solid rgb(198, 226, 255); width: 80px; text-align: center;" id="replace2">倒萨</div></td>
+<td><div style='width: 60px; height: 20px; background-image: url("../../../Images/AuditRole/rline.png");' class="clsrline"></div></td>
+<td><div style='width: 20px; height: 20px; background-image: url("../../../Images/AuditRole/rarrow.png");' class="clsrarrow"></div></td>
+<td><div style="padding: 10px; border: 1px solid rgb(198, 226, 255);" id="end">审核结束</div></td>
+</tr> 
+</tbody></table>
+</div>

@@ -1,0 +1,51 @@
+<DIV style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; WIDTH: 600px; PADDING-RIGHT: 10px; PADDING-TOP: 10px" id=auditimg>
+<TABLE style="BORDER-RIGHT-WIDTH: 0px; WIDTH: 100%; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px" cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD>
+<DIV style="WIDTH: 83px; FLOAT: left; HEIGHT: 40px"></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/ul.png); WIDTH: 40px; FLOAT: left; HEIGHT: 40px" class=clsul></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/rline.png); MARGIN-TOP: 8px; WIDTH: 100px; FLOAT: left; HEIGHT: 20px" class=clsrline></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/rarrow.png); MARGIN-TOP: 8px; WIDTH: 20px; FLOAT: left; HEIGHT: 20px" class=clsrarrow></DIV>
+<DIV style="BORDER-BOTTOM: #cae1ff 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #cae1ff 1px solid; LINE-HEIGHT: 30px; MARGIN-TOP: 5px; WIDTH: 78px; FLOAT: left; HEIGHT: 28px; BORDER-TOP: #cae1ff 1px solid; BORDER-RIGHT: #cae1ff 1px solid" id=replace1>的孙菲菲</DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/rline.png); MARGIN-TOP: 8px; WIDTH: 140px; FLOAT: left; HEIGHT: 20px" class=clsrline></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/ur.png); MARGIN-TOP: 3px; WIDTH: 40px; FLOAT: left; HEIGHT: 37px" class=clsur></DIV></TD></TR>
+<TR>
+<TD>
+<DIV style="WIDTH: 90px; FLOAT: left; HEIGHT: 20px"></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/cline.png); WIDTH: 20px; FLOAT: left; HEIGHT: 20px" class=clscline></DIV>
+<DIV style="WIDTH: 364px; FLOAT: left; HEIGHT: 20px"></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/cline.png); WIDTH: 20px; FLOAT: left; HEIGHT: 20px" class=clscline></DIV></TD></TR>
+<TR>
+<TD>
+<DIV style="WIDTH: 90px; FLOAT: left; HEIGHT: 20px"></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/cline.png); WIDTH: 20px; FLOAT: left; HEIGHT: 20px" class=clscline></DIV>
+<DIV style="WIDTH: 364px; FLOAT: left; HEIGHT: 20px"></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/darrow.png); WIDTH: 20px; FLOAT: left; HEIGHT: 20px" class=clsdarrow></DIV></TD></TR>
+<TR>
+<TD>
+<DIV style="WIDTH: 60px; FLOAT: left; HEIGHT: 30px"></DIV>
+<DIV style="BORDER-BOTTOM: #cae1ff 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #cae1ff 1px solid; LINE-HEIGHT: 30px; WIDTH: 80px; FLOAT: left; HEIGHT: 28px; BORDER-TOP: #cae1ff 1px solid; BORDER-RIGHT: #cae1ff 1px solid" id=start>申请人</DIV>
+<DIV style="WIDTH: 300px; FLOAT: left; HEIGHT: 30px"></DIV>
+<DIV style="BORDER-BOTTOM: #cae1ff 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #cae1ff 1px solid; LINE-HEIGHT: 30px; WIDTH: 80px; FLOAT: left; HEIGHT: 28px; BORDER-TOP: #cae1ff 1px solid; BORDER-RIGHT: #cae1ff 1px solid" id=end>审核结束</DIV></TD></TR>
+<TR>
+<TD>
+<DIV style="WIDTH: 90px; FLOAT: left; HEIGHT: 20px"></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/cline.png); WIDTH: 20px; FLOAT: left; HEIGHT: 20px" class=clscline></DIV>
+<DIV style="WIDTH: 364px; FLOAT: left; HEIGHT: 20px"></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/uarrow.png); WIDTH: 20px; FLOAT: left; HEIGHT: 20px" class=clsuarrow></DIV></TD></TR>
+<TR>
+<TD>
+<DIV style="WIDTH: 90px; FLOAT: left; HEIGHT: 20px"></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/cline.png); WIDTH: 20px; FLOAT: left; HEIGHT: 20px" class=clscline></DIV>
+<DIV style="WIDTH: 366px; FLOAT: left; HEIGHT: 20px"></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/cline.png); WIDTH: 20px; FLOAT: left; HEIGHT: 20px" class=clscline></DIV></TD></TR>
+<TR>
+<TD>
+<DIV style="WIDTH: 80px; FLOAT: left; HEIGHT: 37px"></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/dl.png); MARGIN-TOP: -2px; WIDTH: 40px; FLOAT: left; HEIGHT: 37px" class=clsdl></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/rline.png); MARGIN-TOP: 10px; WIDTH: 100px; FLOAT: left; HEIGHT: 20px" class=clsrline></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/rarrow.png); MARGIN-TOP: 10px; WIDTH: 20px; FLOAT: left; HEIGHT: 20px" class=clsrarrow></DIV>
+<DIV style="BORDER-BOTTOM: #cae1ff 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #cae1ff 1px solid; LINE-HEIGHT: 30px; MARGIN-TOP: 5px; WIDTH: 78px; FLOAT: left; HEIGHT: 28px; BORDER-TOP: #cae1ff 1px solid; BORDER-RIGHT: #cae1ff 1px solid" id=replace2>斯蒂</DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/rline.png); MARGIN-TOP: 9px; WIDTH: 142px; FLOAT: left; HEIGHT: 20px" class=clsrline></DIV>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/dr.png); WIDTH: 40px; FLOAT: left; HEIGHT: 37px" class=clsdr></DIV></TD></TR></TBODY></TABLE></DIV>

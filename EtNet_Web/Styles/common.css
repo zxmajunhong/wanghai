@@ -1,0 +1,29 @@
+* {margin:0; padding:0; outline:none}
+body {font:11px Verdana,Arial; margin:15px; background:#fff url(../Images/Common/bg.gif) repeat-x; color:#091f30}
+span a{font-weight: bold;}
+img {border: 0px solid #111;}
+.sortable {width:100%; border-left:1px solid #c6d5e1; border-top:1px solid #c6d5e1; border-bottom:none; margin:0 auto 15px}
+.sortable th {background:url(../Images/Common/list_tit.png); text-align:left; color:White; border:1px solid White; border-right:none}
+.sortable th h3 {font-size:12px;}
+.sortable td {padding:4px 6px 6px; border-bottom:1px solid #c6d5e1; border-right:1px solid #c6d5e1}
+.sortable .head h3 {background:url(../Images/Common/sort.gif) 7px center no-repeat; cursor:pointer; padding-left:18px}
+.sortable .desc, .sortable .asc {background:url(../Images/Common/list_tit.png)}
+.siftcol{background:url(../Images/Common/list_tit.png); height:100%; text-align:left; color:#F0FFFF; font-size:12px;}
+.siftcol img{ width:14px; height:14px; border:0; vertical-align:middle; margin-right:5px;}
+.sortable .desc h3 {background:url(../Images/Common/desc.gif) 7px center no-repeat; cursor:pointer; padding-left:18px}
+.sortable .asc h3 {background:url(../Images/Common/asc.gif) 7px  center no-repeat; cursor:pointer; padding-left:18px}
+.sortable .head:hover, .sortable .desc:hover, .sortable .asc:hover {color:#555555}
+.sortable .evenrow td {background:#fff}
+.sortable .oddrow td {background:#ecf2f6}
+.sortable td.evenselected {background:#ecf2f6}
+.sortable td.oddselected {background:#dce6ee}
+
+#controls {width:auto; margin:0 auto; height:20px}
+#perpage {float:left; width:200px}
+#perpage select {float:left; font-size:11px}
+#perpage span {float:left; margin:2px 0 0 5px;
+    width: 212px;
+}
+#navigation {float:left; width:auto; text-align:center}
+#navigation img {cursor:pointer}
+#text {float:left; width:200px; text-align:right; margin-top:2px}

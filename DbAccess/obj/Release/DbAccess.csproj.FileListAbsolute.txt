@@ -1,0 +1,7 @@
+E:\项目数据库\EtNet-2013-3-6\EtNet\DbAccess\bin\Release\DbAccess.dll
+E:\项目数据库\EtNet-2013-3-6\EtNet\DbAccess\bin\Release\DbAccess.pdb
+E:\项目数据库\EtNet-2013-3-6\EtNet\DbAccess\bin\Release\Common.dll
+E:\项目数据库\EtNet-2013-3-6\EtNet\DbAccess\bin\Release\Common.pdb
+E:\项目数据库\EtNet-2013-3-6\EtNet\DbAccess\obj\Release\ResolveAssemblyReference.cache
+E:\项目数据库\EtNet-2013-3-6\EtNet\DbAccess\obj\Release\DbAccess.dll
+E:\项目数据库\EtNet-2013-3-6\EtNet\DbAccess\obj\Release\DbAccess.pdb

@@ -1,0 +1,18 @@
+<DIV style="PADDING-BOTTOM: 20px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; FONT-SIZE: 14px; PADDING-TOP: 20px" id=auditimg>
+<TABLE cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD>
+<DIV style="BORDER-BOTTOM: #c6e2ff 1px solid; BORDER-LEFT: #c6e2ff 1px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BORDER-TOP: #c6e2ff 1px solid; BORDER-RIGHT: #c6e2ff 1px solid; PADDING-TOP: 10px" id=start>申请人</DIV></TD>
+<TD>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/rline.png); WIDTH: 100px; HEIGHT: 20px" class=clsrline></DIV></TD>
+<TD>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/rarrow.png); WIDTH: 20px; HEIGHT: 20px" class=clsrarrow></DIV></TD>
+<TD>
+<DIV style="BORDER-BOTTOM: #c6e2ff 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #c6e2ff 1px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; WIDTH: 80px; PADDING-RIGHT: 10px; BORDER-TOP: #c6e2ff 1px solid; BORDER-RIGHT: #c6e2ff 1px solid; PADDING-TOP: 10px" id=replace1 class=cls1>业务员<BR>(系统管理员)</DIV></TD>
+<TD>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/rline.png); WIDTH: 100px; HEIGHT: 20px" class=clsrline></DIV></TD>
+<TD>
+<DIV style="BACKGROUND-IMAGE: url(../../../Images/AuditRole/rarrow.png); WIDTH: 20px; HEIGHT: 20px" class=clsrarrow></DIV></TD>
+<TD>
+<DIV style="BORDER-BOTTOM: #c6e2ff 1px solid; BORDER-LEFT: #c6e2ff 1px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BORDER-TOP: #c6e2ff 1px solid; BORDER-RIGHT: #c6e2ff 1px solid; PADDING-TOP: 10px" id=end>审核结束</DIV></TD></TR></TBODY></TABLE></DIV>
