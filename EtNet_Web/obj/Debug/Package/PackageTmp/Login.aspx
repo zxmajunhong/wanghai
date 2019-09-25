@@ -127,7 +127,6 @@
             var list = <%# GetMsgData() %>
 
             function msg() {
-               debugger;
                 if(list.length == 0)
                 {
                   return;

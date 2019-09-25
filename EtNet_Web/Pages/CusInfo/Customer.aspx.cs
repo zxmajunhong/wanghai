@@ -78,7 +78,13 @@ namespace EtNet_Web.Pages.CusInfo
 
         public static string ifused(string args)
         {
-            return LoginInfoManager.getLoginInfoById(Convert.ToInt32(args)).Cname;
+            try
+            {
+                return LoginInfoManager.getLoginInfoById(Convert.ToInt32(args)).Cname;
+            }
+            catch (Exception e) { 
+                return "未找到对应的用户"+args;
+            }
         }
 
         /// <summary>

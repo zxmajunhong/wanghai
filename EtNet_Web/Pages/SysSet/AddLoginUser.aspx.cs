@@ -103,6 +103,7 @@ namespace Pages.SysSet
             this.tbxFirm.Text = "";
             this.hidfirm.Value = "";
             this.tbxPostid.Text = "";
+            this.cbxprofit.Checked = false;
         }
 
 
@@ -209,6 +210,8 @@ namespace Pages.SysSet
                 loginInfo.Firmidlist = this.hidfirm.Value;
                 loginInfo.Firmtxtlist = this.tbxFirm.Text;
                 loginInfo.orderRate = this.ddtc.Value == "" ? 0 : Convert.ToDouble(this.ddtc.Value);
+                //添加我的订单列表是否能够查看利润标志字段
+                loginInfo.isShowProfit = this.cbxprofit.Checked ? 1 : 0;
             
                 int count = EtNet_BLL.LoginInfoManager.addLoginInfo(loginInfo);
 
@@ -230,6 +233,7 @@ namespace Pages.SysSet
                     this.tbxEmail.Text = "";
                     this.tbxFirm.Text = "";
                     this.hidfirm.Value = "";
+                    this.cbxprofit.Checked = false;
                     //Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "add", "<script>alert('添加失败!');</script>", false);
                     return false;
                 }

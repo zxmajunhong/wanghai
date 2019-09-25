@@ -269,6 +269,14 @@
                 <td style="width:300px">
                     <input type="text" id="ddtc" runat="server" class="clsunderline" />
                 </td>
+                <td rowspan="6" style="width:250px">
+                </td>
+                <td>
+                    查看利润:
+                </td>
+                <td>
+                    <asp:CheckBox ID="cbxprofit" runat="server" />
+                </td>
             </tr>
         </table>
     </div>

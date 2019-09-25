@@ -63,3 +63,11 @@ E:\NET\望海\源文件\EtNet\EtNet_Models\bin\Debug\EtNet_Models.dll
 E:\NET\望海\源文件\EtNet\EtNet_Models\bin\Debug\EtNet_Models.pdb
 E:\NET\望海\源文件\EtNet\EtNet_Models\obj\Debug\EtNet_Models.dll
 E:\NET\望海\源文件\EtNet\EtNet_Models\obj\Debug\EtNet_Models.pdb
+G:\projects\ww\wh\EtNet\EtNet_Models\bin\Debug\EtNet_Models.dll
+G:\projects\ww\wh\EtNet\EtNet_Models\bin\Debug\EtNet_Models.pdb
+G:\projects\ww\wh\EtNet\EtNet_Models\obj\Debug\EtNet_Models.dll
+G:\projects\ww\wh\EtNet\EtNet_Models\obj\Debug\EtNet_Models.pdb
+E:\Projects\woanwo\望海\EtNet\EtNet_Models\bin\Debug\EtNet_Models.dll
+E:\Projects\woanwo\望海\EtNet\EtNet_Models\bin\Debug\EtNet_Models.pdb
+E:\Projects\woanwo\望海\EtNet\EtNet_Models\obj\Debug\EtNet_Models.dll
+E:\Projects\woanwo\望海\EtNet\EtNet_Models\obj\Debug\EtNet_Models.pdb

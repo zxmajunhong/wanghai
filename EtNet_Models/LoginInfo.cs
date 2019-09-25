@@ -136,5 +136,14 @@ namespace EtNet_Models
             get;
             set;
         }
+
+        /// <summary>
+        /// 判断用户是否能够查看我的订单列表的利润一列 0不能，1可以
+        /// </summary>
+        public int isShowProfit
+        {
+            get;
+            set;
+        }
     }
 }

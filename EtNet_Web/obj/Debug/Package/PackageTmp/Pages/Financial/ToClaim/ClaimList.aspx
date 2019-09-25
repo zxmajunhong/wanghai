@@ -339,19 +339,19 @@
                     <th width="100px" class="clstitleimg">
                         收款金额
                     </th>
-                    <th width="200px" class="clstitleimg">
+                    <th width="180px" class="clstitleimg">
                         付款单位
                     </th>
-                    <th width="80px" class="clstitleimg">
+                    <%--<th width="80px" class="clstitleimg">
                         入账方式
-                    </th>
-                    <th width="150px" class="clstitleimg">
+                    </th>--%>
+                    <th width="100px" class="clstitleimg">
                         入账银行
                     </th>
-                    <th width="200px" class="clstitleimg">
+                    <th width="120px" class="clstitleimg">
                         经营单位
                     </th>
-                     <th width="80px" class="clstitleimg">
+                     <th width="220px" class="clstitleimg">
                         备注
                     </th>
                     <th width="80px" class="clstitleimg">
@@ -387,9 +387,9 @@
                             <td>
                                 <%# Eval("paymentUnit") %>
                             </td>
-                            <td>
+                            <%--<td>
                                 <%# ChangePaymentMode(Eval("paymentMode").ToString()) %>
-                            </td>
+                            </td>--%>
                             <td>
                                 <%# Eval("payBank") %>
                             </td>
@@ -430,6 +430,16 @@
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
+                <tr>
+                    <td>
+                        合计：
+                    </td>
+                    <td colspan="4"></td>
+                    <td>
+                        <asp:Label Text="" runat="server" ID="lblmoneyAmount" />
+                    </td>
+                    <td colspan="6"></td>
+                </tr>
             </tbody>
         </table>
         <webdiyer:AspNetPager ID="AspNetPager1" CssClass="paginator" CurrentPageButtonClass="cpb"

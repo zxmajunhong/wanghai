@@ -131,3 +131,17 @@ E:\NET\望海\源文件\EtNet\DbAccess\bin\Debug\Common.pdb
 E:\NET\望海\源文件\EtNet\DbAccess\obj\Debug\DbAccess.dll
 E:\NET\望海\源文件\EtNet\DbAccess\obj\Debug\DbAccess.pdb
 E:\NET\望海\源文件\EtNet\DbAccess\obj\Debug\DbAccess.csprojResolveAssemblyReference.cache
+G:\projects\ww\wh\EtNet\DbAccess\bin\Debug\DbAccess.dll
+G:\projects\ww\wh\EtNet\DbAccess\bin\Debug\DbAccess.pdb
+G:\projects\ww\wh\EtNet\DbAccess\bin\Debug\Common.dll
+G:\projects\ww\wh\EtNet\DbAccess\bin\Debug\Common.pdb
+G:\projects\ww\wh\EtNet\DbAccess\obj\Debug\DbAccess.csprojResolveAssemblyReference.cache
+G:\projects\ww\wh\EtNet\DbAccess\obj\Debug\DbAccess.dll
+G:\projects\ww\wh\EtNet\DbAccess\obj\Debug\DbAccess.pdb
+E:\Projects\woanwo\望海\EtNet\DbAccess\bin\Debug\DbAccess.dll
+E:\Projects\woanwo\望海\EtNet\DbAccess\bin\Debug\DbAccess.pdb
+E:\Projects\woanwo\望海\EtNet\DbAccess\bin\Debug\Common.dll
+E:\Projects\woanwo\望海\EtNet\DbAccess\bin\Debug\Common.pdb
+E:\Projects\woanwo\望海\EtNet\DbAccess\obj\Debug\DbAccess.csprojResolveAssemblyReference.cache
+E:\Projects\woanwo\望海\EtNet\DbAccess\obj\Debug\DbAccess.dll
+E:\Projects\woanwo\望海\EtNet\DbAccess\obj\Debug\DbAccess.pdb

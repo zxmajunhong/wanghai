@@ -60,7 +60,9 @@ namespace Pages.SysSet
                 this.tbxPostid.Text = post.Postname;
                 this.hidPostid.Value = post.Id.ToString();
 
-                this.ddtc.Value = model.orderRate.ToString(); 
+                this.ddtc.Value = model.orderRate.ToString();
+                //是否能够查看我的订单列表的利润列
+                this.cbxprofit.Checked = model.isShowProfit == 1;
             }
             else
             {
@@ -108,6 +110,7 @@ namespace Pages.SysSet
                 loginInfo.Postid = Convert.ToInt32(this.hidPostid.Value);
 
                 loginInfo.orderRate = this.ddtc.Value == "" ? 0 : Convert.ToDouble(this.ddtc.Value);
+                loginInfo.isShowProfit = this.cbxprofit.Checked ? 1 : 0;
 
                 int count = EtNet_BLL.LoginInfoManager.updateLoginInfo(loginInfo);
                 if (count > 0)
@@ -127,6 +130,7 @@ namespace Pages.SysSet
                     this.tbxFirm.Text = "";
                     this.hidfirm.Value = "";
                     this.tbxPostid.Text = "";
+                    this.cbxprofit.Checked = false;
                     Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "add", "<script>alert('修改失败!');</script>", false);
                 }
             }

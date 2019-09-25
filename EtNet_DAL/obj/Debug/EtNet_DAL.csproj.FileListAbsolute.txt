@@ -96,3 +96,17 @@ E:\NET\望海\源文件\EtNet\EtNet_DAL\bin\Debug\EtNet_Models.pdb
 E:\NET\望海\源文件\EtNet\EtNet_DAL\obj\Debug\EtNet_DAL.dll
 E:\NET\望海\源文件\EtNet\EtNet_DAL\obj\Debug\EtNet_DAL.pdb
 E:\NET\望海\源文件\EtNet\EtNet_DAL\obj\Debug\EtNet_DAL.csprojResolveAssemblyReference.cache
+G:\projects\ww\wh\EtNet\EtNet_DAL\bin\Debug\EtNet_DAL.dll
+G:\projects\ww\wh\EtNet\EtNet_DAL\bin\Debug\EtNet_DAL.pdb
+G:\projects\ww\wh\EtNet\EtNet_DAL\bin\Debug\EtNet_Models.dll
+G:\projects\ww\wh\EtNet\EtNet_DAL\bin\Debug\EtNet_Models.pdb
+G:\projects\ww\wh\EtNet\EtNet_DAL\obj\Debug\EtNet_DAL.csprojResolveAssemblyReference.cache
+G:\projects\ww\wh\EtNet\EtNet_DAL\obj\Debug\EtNet_DAL.dll
+G:\projects\ww\wh\EtNet\EtNet_DAL\obj\Debug\EtNet_DAL.pdb
+E:\Projects\woanwo\望海\EtNet\EtNet_DAL\bin\Debug\EtNet_DAL.dll
+E:\Projects\woanwo\望海\EtNet\EtNet_DAL\bin\Debug\EtNet_DAL.pdb
+E:\Projects\woanwo\望海\EtNet\EtNet_DAL\bin\Debug\EtNet_Models.dll
+E:\Projects\woanwo\望海\EtNet\EtNet_DAL\bin\Debug\EtNet_Models.pdb
+E:\Projects\woanwo\望海\EtNet\EtNet_DAL\obj\Debug\EtNet_DAL.csprojResolveAssemblyReference.cache
+E:\Projects\woanwo\望海\EtNet\EtNet_DAL\obj\Debug\EtNet_DAL.dll
+E:\Projects\woanwo\望海\EtNet\EtNet_DAL\obj\Debug\EtNet_DAL.pdb

@@ -17,7 +17,7 @@ namespace EtNet_DAL
         /// </summary>
         public static int addLoginInfo(LoginInfo logininfo)
         {
-            string sql = "insert into LoginInfo([loginid],[loginpwd],[cname],[ename],[email],[roleid],[departid],[tel],[fax],[firmidlist],[firmtxtlist],[postid],[orderrate]) values (@loginid,@loginpwd,@cname,@ename,@email,@roleid,@departid,@tel,@fax,@firmidlist,@firmtxtlist,@postid,@orderrate)";
+            string sql = "insert into LoginInfo([loginid],[loginpwd],[cname],[ename],[email],[roleid],[departid],[tel],[fax],[firmidlist],[firmtxtlist],[postid],[orderrate],[isshowprofit]) values (@loginid,@loginpwd,@cname,@ename,@email,@roleid,@departid,@tel,@fax,@firmidlist,@firmtxtlist,@postid,@orderrate,@isshowprofit)";
             SqlParameter[] sp = new SqlParameter[]
       {
         new SqlParameter("@loginid",logininfo.Loginid),
@@ -32,7 +32,8 @@ namespace EtNet_DAL
         new SqlParameter("@firmidlist",logininfo.Firmidlist),
         new SqlParameter("@firmtxtlist",logininfo.Firmtxtlist),
         new SqlParameter("@postid",logininfo.Postid),
-        new SqlParameter("@orderrate",logininfo.orderRate)
+        new SqlParameter("@orderrate",logininfo.orderRate),
+        new SqlParameter("@isshowprofit", logininfo.isShowProfit)
       };
             return DBHelper.ExecuteCommand(sql, sp);
         }
@@ -43,7 +44,7 @@ namespace EtNet_DAL
         public static int updateLoginInfoById(LoginInfo logininfo)
         {
 
-            string sql = "update LoginInfo set loginid=@loginid,loginpwd=@loginpwd,cname=@cname,ename=@ename,email=@email,roleid=@roleid,departid=@departid,tel=@tel,fax=@fax,firmidlist=@firmidlist,firmtxtlist=@firmtxtlist,postid=@postid,orderrate=@orderrate where id=@id";
+            string sql = "update LoginInfo set loginid=@loginid,loginpwd=@loginpwd,cname=@cname,ename=@ename,email=@email,roleid=@roleid,departid=@departid,tel=@tel,fax=@fax,firmidlist=@firmidlist,firmtxtlist=@firmtxtlist,postid=@postid,orderrate=@orderrate,isshowprofit=@isshowprofit where id=@id";
             SqlParameter[] sp = new SqlParameter[]
      {
         new SqlParameter("@id",logininfo.Id),
@@ -59,7 +60,9 @@ namespace EtNet_DAL
         new SqlParameter("@firmidlist",logininfo.Firmidlist),
         new SqlParameter("@firmtxtlist",logininfo.Firmtxtlist),
          new SqlParameter("@postid",logininfo.Postid),
-         new SqlParameter("@orderrate",logininfo.orderRate)
+         new SqlParameter("@orderrate",logininfo.orderRate),
+         new SqlParameter("@isshowprofit",logininfo.isShowProfit)
+
      };
             return DBHelper.ExecuteCommand(sql, sp);
 
@@ -126,6 +129,7 @@ namespace EtNet_DAL
                     logininfo.Firmtxtlist = Convert.ToString(dr["firmtxtlist"]);
                     logininfo.Postid = Convert.ToInt32(dr["postid"]);
                     logininfo.orderRate = Convert.ToDouble(dr["orderrate"]);
+                    logininfo.isShowProfit = Convert.ToInt32(dr["isshowprofit"]);
                 }
             }
 
@@ -168,6 +172,7 @@ namespace EtNet_DAL
                     logininfo.Firmtxtlist = Convert.ToString(dr["firmtxtlist"]);
                     logininfo.Postid = Convert.ToInt32(dr["postid"]);
                     logininfo.orderRate = Convert.ToDouble(dr["orderrate"]);
+                    logininfo.isShowProfit = Convert.ToInt32(dr["isshowprofit"]);
                     list.Add(logininfo);
                 }
             }
@@ -199,6 +204,7 @@ namespace EtNet_DAL
                     logininfo.Firmtxtlist = Convert.ToString(dr["firmtxtlist"]);
                     logininfo.Postid = Convert.ToInt32(dr["postid"]);
                     logininfo.orderRate = Convert.ToDouble(dr["orderrate"]);
+                    logininfo.isShowProfit = Convert.ToInt32(dr["isshowprofit"]);
                 }
             }
             return logininfo;

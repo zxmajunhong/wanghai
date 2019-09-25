@@ -40,13 +40,22 @@ namespace EtNet_Web.Pages.Order {
         protected global::System.Web.UI.WebControls.DropDownList ddlcolstatus;
         
         /// <summary>
-        /// ddlcus 控件。
+        /// iptcus 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlcus;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText iptcus;
+        
+        /// <summary>
+        /// hidcusid 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hidcusid;
         
         /// <summary>
         /// ddlRequestDate 控件。

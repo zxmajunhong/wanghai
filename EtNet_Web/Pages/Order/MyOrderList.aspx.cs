@@ -19,8 +19,9 @@ namespace EtNet_Web.Pages.Order
             if (!IsPostBack)
             {
                 LoadSalesman();
-                LoadCusName();
+                //LoadCusName();
                 QueryBulider();
+                isShowlirun();
                 LoadOrderCollect();
             }
         }
@@ -52,9 +53,19 @@ namespace EtNet_Web.Pages.Order
         }
 
         /// <summary>
+        /// 判断当前用户是否能够查看利润一栏
+        /// </summary>
+        private void isShowlirun()
+        {
+            LoginInfo login = (LoginInfo)Session["login"];
+            ViewState["lirun"] = login.isShowProfit;
+        }
+
+        /// <summary>
         /// 绑定收款单位
         /// </summary>
-        private void LoadCusName()
+        /// 20170518 改为输入内容模糊查询收款单位
+        /*private void LoadCusName()
         {
             this.ddlcus.Items.Clear();
             this.ddlcus.Items.Add(new ListItem("——请选择——", "0"));
@@ -66,6 +77,23 @@ namespace EtNet_Web.Pages.Order
                 adItem.Value = dr["cusshortName"].ToString();
                 ddlcus.Items.Add(adItem);
             }
+        }*/
+
+        /// <summary>
+        /// 返回收款单位数据
+        /// </summary>
+        /// <returns></returns>
+        public string getCusDataSourec()
+        {
+            string result = "[";
+            DataTable dt = CustomerManager.GetList(0, "", "cusshortName");
+            foreach (DataRow dr in dt.Rows)
+            {
+                result += "{ value: '"+ dr["cusshortName"].ToString() +"', id: '"+ dr["id"].ToString() +"' },";
+            }
+            result.TrimEnd(',');
+            result += "]";
+            return result;
         }
 
         /// <summary>
@@ -102,11 +130,11 @@ namespace EtNet_Web.Pages.Order
                 else
                 {
                     LoginInfo login = (LoginInfo)Session["login"];
-                    //string ids = LoginDataLimitManager.GetLimit(login.Id);
-                    //if (string.IsNullOrEmpty(ids))
-                    //    sqlstr += " and salemanid = " + login.Id;
-                    //else
-                    //    sqlstr += " and salemanid in (" + ids + ")";
+                    string ids = LoginDataLimitManager.GetLimit(login.Id);
+                    if (string.IsNullOrEmpty(ids))
+                      sqlstr += " and salemanid = " + login.Id;
+                    else
+                      sqlstr += " and salemanid in (" + ids + ")";
                     SearchPageSet sps = SearchPageSetManager.getSearchPageSetByLoginId(login.Id, 034);
                     Data data = new Data();
                     AspNetPager1.RecordCount = data.GetCount("View_OrderAndClollect", sqlstr);
@@ -300,9 +328,14 @@ namespace EtNet_Web.Pages.Order
             {
                 sqlstr.Append(" and collectStatus='" + this.ddlcolstatus.SelectedValue + "'");
             }
-            if (this.ddlcus.SelectedIndex > 0)
+            //20170518 改为输入内容模糊查询收款单位
+            /*if (this.ddlcus.SelectedIndex > 0)
             {
                 sqlstr.Append(" and cusId=" + this.ddlcus.SelectedValue);
+            }*/
+            if (this.hidcusid.Value != "0")
+            {
+                sqlstr.Append(" and cusId=" + this.hidcusid.Value);
             }
             if (ddlRequestDate.SelectedValue.Trim() != "-1")
             {
@@ -372,7 +405,9 @@ namespace EtNet_Web.Pages.Order
         {
             this.ddlsalesman.SelectedIndex = 0;
             this.ddlcolstatus.SelectedIndex = 0;
-            this.ddlcus.SelectedIndex = 0;
+            this.iptcus.Value = "";
+            this.iptcus.Attributes["cusid"] = "0";
+            //this.ddlcus.SelectedIndex = 0;
             this.ddlRequestDate.SelectedIndex = -1;
             this.hidDateValue.Value = "";
             Session["MyOrderQuery"] = "";

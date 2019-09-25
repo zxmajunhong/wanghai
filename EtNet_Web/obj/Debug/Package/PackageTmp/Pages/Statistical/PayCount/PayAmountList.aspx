@@ -100,11 +100,14 @@
             border: 0;
             border-bottom: 1px solid #C6E2FF;
         }
+        .filterInput{width:200px;border-width:0px 0px 1px;border-style: none none solid;border-color: #C6E2FF;}
+        input.Wdate{cursor:pointer;width:100px;border-width:0px 0px 1px;border-style: none none solid;border-color: #C6E2FF;}
     </style>
     <script src="../../../Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
     <script src="../../../Scripts/jquery.easyui.min.js" type="text/javascript"></script>
     <script src="../../../Scripts/easyui-lang-zh_CN.js" type="text/javascript"></script>
     <script src="../../../Scripts/customdate.js" type="text/javascript"></script>
+    <script src="../../../My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
 
@@ -221,6 +224,14 @@
                         <asp:ListItem Text="小于零" Value="<"></asp:ListItem>
                     </asp:DropDownList>
                 </td>
+                <%--<td width="80px" align="right">收款时间：</td>
+                    <td>
+                        <asp:TextBox class="filterInput Wdate" ID="txtFilterSatrtTime" runat="server"
+                            onFocus="var d5222=$dp.$('txtFilterEndTime');WdatePicker({onpicked:function(){txtFilterEndTime.focus();},maxDate:'#F{$dp.$D(\'txtFilterEndTime\')}'})"></asp:TextBox>
+                        到
+                        <asp:TextBox class="filterInput Wdate" ID="txtFilterEndTime" runat="server"
+                            onFocus="WdatePicker({minDate:'#F{$dp.$D(\'txtFilterSatrtTime\')}'})"></asp:TextBox>
+                    </td>--%>
             </tr>
             <tr>
                 <td colspan="6" style="text-align: right;">

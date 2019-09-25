@@ -116,6 +116,25 @@
             text-align: center;
             border: 1px solid #4CB0D5;
         }
+        #iptcus 
+        {
+            outline: none;}
+        .ui-autocomplete 
+        {
+            list-style-type: none;
+            max-height: 150px;
+            overflow-y: scroll;
+            padding-left: 2px;
+            background-color: #fff;
+            border: 1px solid #dfdfdf;
+            width: 200px !important;
+        }
+        
+        .ui-autocomplete .ui-menu-item 
+        {
+            margin: 2px 0;
+            cursor: pointer;
+        }
     </style>
     <script src="../../Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="../../Scripts/artDialog4.1.6/artDialog.js" type="text/javascript"></script>
@@ -126,6 +145,8 @@
     <script src="../../Scripts/customdate.js" type="text/javascript"></script>
     <link href="../../CSS/easyui.css" rel="stylesheet" type="text/css" />
     <script src="../../My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+    <%--输入下拉模糊查询--%>
+    <script src="../../Scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             //编辑默认设置
@@ -150,7 +171,30 @@
                     $("#dateBox").text("");
                     $("#hidDateValue").val("");
                 }
-            })
+            });
+
+            // 定义收款单位模糊查询功能
+            var cusSource = <%= getCusDataSourec() %>;
+            $("#iptcus").autocomplete({
+                minLength: 0,
+                maxHeight: 150,
+                source: cusSource,
+                focus: function(event, ui) {
+                    $("#iptcus").val(ui.item.value);
+                    return false;
+                },
+                select: function(event, ui) {
+                    $("#iptcus").val(ui.item.value);
+                    $("#hidcusid").val(ui.item.id);
+                    return false;
+                }
+            });
+
+            $("#iptcus").blur(function(){
+                if($(this).val() == ''){
+                    $("#hidcusid").val('0');
+                }
+            });
         })
 
         //查看订单信息
@@ -197,8 +241,10 @@
                     请选择收款单位：
                 </td>
                 <td>
-                    <asp:DropDownList Width="200px" ID="ddlcus" runat="server">
-                    </asp:DropDownList>
+                    <input type="text" name="iptcus" value="" id="iptcus" runat="server" />
+                    <input type="hidden" id="hidcusid" value="0" runat="server"/>
+                    <%--<asp:DropDownList Width="200px" ID="ddlcus" runat="server">
+                    </asp:DropDownList>--%>
                 </td>
             </tr>
             <tr>
@@ -252,9 +298,12 @@
                             <th class="clstitleimg" style="width: 4%;">
                                 人数
                             </th>
+                            <% if (ViewState["lirun"].ToString() == "1")
+                               { %>
                             <th class="clstitleimg" style="width: 4%;">
                                 利润
                             </th>
+                            <% } %>
                             <th class="clstitleimg" style="width: 6%;">
                                 旅游线路
                             </th>
@@ -294,8 +343,9 @@
                                 <ItemTemplate>
                                     <tr>
                                         <td>
-                                            <a href="javascript:void(0)" onclick="getOrder('<%# Eval("orderid").ToString() %>')">
-                                                <%# Eval("orderNum") %></a>
+                                            <%--<a href="javascript:void(0)" onclick="getOrder('<%# Eval("orderid").ToString() %>')">--%>
+                                                <%# Eval("orderNum") %>
+                                              <%--</a>--%>
                                         </td>
                                         <td>
                                             <%# DateTime.Parse(Eval("outTime").ToString()).ToString("yyyy-MM-dd")%>
@@ -315,13 +365,16 @@
                                         <td>
                                             <%#Eval("pNum") %>
                                         </td>
+                                        <% if (ViewState["lirun"].ToString() == "1")
+                                           { %>
                                         <td>
                                             <%#Eval("lirun") %>
                                         </td>
+                                        <% }%>
                                         <td>
                                             <%# TourLine(Convert.ToInt32( Eval("tour")))%>
                                         </td>
-                                        <td>
+                                        <td>y
                                             <%#Eval("tourRemark")%>
                                         </td>
                                         <td>
@@ -365,7 +418,10 @@
                             <td id="child_sum" runat="server"></td>
                             <td id="with_sum" runat="server"></td>
                             <td id="pnum_sum" runat="server"></td>
+                            <% if (ViewState["lirun"].ToString() == "1")
+                               { %>
                             <td id="lirun_sum" runat="server"></td>
+                            <% } %>
                             <td></td>
                             <td></td>
                             <td id="money_sum" runat="server"></td>
