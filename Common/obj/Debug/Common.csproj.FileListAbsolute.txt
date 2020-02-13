@@ -173,3 +173,4 @@ E:\Projects\woanwo\望海\EtNet\Common\bin\Debug\Common.dll
 E:\Projects\woanwo\望海\EtNet\Common\bin\Debug\Common.pdb
 E:\Projects\woanwo\望海\EtNet\Common\obj\Debug\Common.dll
 E:\Projects\woanwo\望海\EtNet\Common\obj\Debug\Common.pdb
+E:\Projects\woanwo\望海\EtNet\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
