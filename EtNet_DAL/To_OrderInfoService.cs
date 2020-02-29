@@ -582,5 +582,31 @@ namespace EtNet_DAL
             };
             return DBHelper.ExecuteCommand(sql, sp) > 0;
         }
+
+        /// <summary>
+        /// 获取指定表格指定字段数据
+        /// </summary>
+        /// <param name="tblname"></param>
+        /// <param name="fields"></param>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public static DataTable GetTableInfo(string tblname, string fields, string strWhere)
+        {
+            string str = "select ";
+            if (fields != "")
+            {
+                str += fields;
+            }
+            else
+            {
+                str += " * ";
+            }
+            str += " from " + tblname;
+            if (strWhere.Trim() != "") 
+            {
+                str += " where 1=1 " + strWhere;
+            }
+            return DBHelper.GetDataSet(str);
+        }
     }
 }

@@ -142,3 +142,12 @@ E:\NET\望海\源文件\EtNet\DBUtility\bin\Debug\Common.pdb
 E:\NET\望海\源文件\EtNet\DBUtility\obj\Debug\DBUtility.dll
 E:\NET\望海\源文件\EtNet\DBUtility\obj\Debug\DBUtility.pdb
 E:\NET\望海\源文件\EtNet\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+G:\projects\ww\wh\EtNet\DBUtility\bin\Debug\DBUtility.dll
+G:\projects\ww\wh\EtNet\DBUtility\bin\Debug\DBUtility.pdb
+G:\projects\ww\wh\EtNet\DBUtility\bin\Debug\DbAccess.dll
+G:\projects\ww\wh\EtNet\DBUtility\bin\Debug\Common.dll
+G:\projects\ww\wh\EtNet\DBUtility\bin\Debug\DbAccess.pdb
+G:\projects\ww\wh\EtNet\DBUtility\bin\Debug\Common.pdb
+G:\projects\ww\wh\EtNet\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+G:\projects\ww\wh\EtNet\DBUtility\obj\Debug\DBUtility.dll
+G:\projects\ww\wh\EtNet\DBUtility\obj\Debug\DBUtility.pdb

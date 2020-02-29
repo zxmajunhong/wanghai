@@ -93,3 +93,7 @@ E:\NET\望海\源文件\EtNet\CommonlyUsed\bin\Debug\CommonlyUsed.dll
 E:\NET\望海\源文件\EtNet\CommonlyUsed\bin\Debug\CommonlyUsed.pdb
 E:\NET\望海\源文件\EtNet\CommonlyUsed\obj\Debug\CommonlyUsed.dll
 E:\NET\望海\源文件\EtNet\CommonlyUsed\obj\Debug\CommonlyUsed.pdb
+G:\projects\ww\wh\EtNet\CommonlyUsed\bin\Debug\CommonlyUsed.dll
+G:\projects\ww\wh\EtNet\CommonlyUsed\bin\Debug\CommonlyUsed.pdb
+G:\projects\ww\wh\EtNet\CommonlyUsed\obj\Debug\CommonlyUsed.dll
+G:\projects\ww\wh\EtNet\CommonlyUsed\obj\Debug\CommonlyUsed.pdb

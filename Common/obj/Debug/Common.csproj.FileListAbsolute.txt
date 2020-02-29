@@ -165,3 +165,8 @@ E:\NET\望海\源文件\EtNet\Common\bin\Debug\Common.pdb
 E:\NET\望海\源文件\EtNet\Common\obj\Debug\Common.dll
 E:\NET\望海\源文件\EtNet\Common\obj\Debug\Common.pdb
 E:\NET\望海\源文件\EtNet\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+G:\projects\ww\wh\EtNet\Common\bin\Debug\Common.dll
+G:\projects\ww\wh\EtNet\Common\bin\Debug\Common.pdb
+G:\projects\ww\wh\EtNet\Common\obj\Debug\Common.dll
+G:\projects\ww\wh\EtNet\Common\obj\Debug\Common.pdb
+G:\projects\ww\wh\EtNet\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

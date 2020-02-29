@@ -61,6 +61,18 @@ namespace EtNet_BLL
             return To_OrderInfoService.GetViewOrder(fields, strWhere);
         }
 
+        /// <summary>
+        /// 获取指定表格的数据
+        /// </summary>
+        /// <param name="tblname">表名</param>
+        /// <param name="fields">字段</param>
+        /// <param name="strWhere">查询条件</param>
+        /// <returns></returns>
+        public static DataTable GetTableInfo(string tblname, string fields, string strWhere) 
+        {
+            return To_OrderInfoService.GetTableInfo(tblname, fields, strWhere);
+        }
+
         public static To_OrderInfo getTo_OrderInfoByOrderNum(string orderID)
         {
             return To_OrderInfoService.getTo_OrderInfoByOrderNum(orderID);

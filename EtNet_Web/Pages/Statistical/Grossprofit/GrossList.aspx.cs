@@ -9,6 +9,7 @@ using EtNet_BLL;
 using EtNet_BLL.DataPage;
 using System.Data;
 using System.Text;
+using System.Diagnostics;
 
 namespace EtNet_Web.Pages.Statistical.Grossprofit
 {
@@ -67,22 +68,40 @@ namespace EtNet_Web.Pages.Statistical.Grossprofit
         {
             if (Session["orderGrossQuery"] == null)
             {
-                Session["orderGrossQuery"] = "";
+                Session["orderGrossQuery"] = getCurYearFilter();
             }
         }
+
+        /// <summary>
+        /// 获取当前年份的筛选条件
+        /// </summary>
+        /// <returns></returns>
+        private string getCurYearFilter()
+        {
+            int year = DateTime.Now.Year;
+            string filter = " and (outTime >= '" + year.ToString() + "-01-01 00:00:00' and outTime <= '" + year.ToString() + "-12-31 23:59:59')";
+            return filter;
+        }
+
+        private static DataTable orderGrossList;
 
         /// <summary>
         /// 加载数据
         /// </summary>
         private void LoadData()
         {
+            Stopwatch stpwth = new Stopwatch();
+            stpwth.Start();
             string sqlstr = " and iscancel = 'N' ";
             sqlstr += this.cbxFileShow.Checked ? "" : " and fileStatus=0 ";
             sqlstr += Session["orderGrossQuery"].ToString();
             LoginInfo login = (LoginInfo)Session["login"];
             SearchPageSet sps = SearchPageSetManager.getSearchPageSetByLoginId(login.Id, 036);
+
+            // 20200226优化毛利表打不开，将直接查询视图数据，改为查询出来数据后程序做统计 ViewOrderGrossList 这张视图不用了
             Data data = new Data();
-            AspNetPager1.RecordCount = data.GetCount("ViewOrderGrossList", sqlstr);
+            // 配置分页信息 分页用程序分页了，不通过数据库查询
+            AspNetPager1.RecordCount = data.GetCount("ViewOrder", sqlstr);
             if (sps == null)
             {
                 AspNetPager1.NumericButtonCount = 10;
@@ -93,34 +112,154 @@ namespace EtNet_Web.Pages.Statistical.Grossprofit
                 AspNetPager1.NumericButtonCount = sps.Pagecount;
                 AspNetPager1.PageSize = sps.Pageitem;
             }
-            DataTable dt = data.GetList("ViewOrderGrossList", "id", "desc", AspNetPager1.PageSize, AspNetPager1.CurrentPageIndex, sqlstr);
-            rpgrossdata.DataSource = dt;
-            rpgrossdata.DataBind();
+            // 获取指定条件的所有订单信息
+            DataTable orderTbl = To_OrderInfoManager.GetTableInfo("ViewOrder", "orderNum,id,outTime,teamNum,natrue,gross,codenum,auditstutastxt,line,iscancel,inputer,inputerID,departautocode,fileStatus", sqlstr + "order by outTime asc");
 
-            //计算金额合计
-            StringBuilder sqlSelect = new StringBuilder();
-            sqlSelect.Append("select sum(collectShould) as scshould,sum(collectAmount) as scamount,sum(collectSy) as scsy,");
-            sqlSelect.Append("sum(payShould) as spshould,sum(payAmount) as spamount,sum(paySy) as spsy,");
-            sqlSelect.Append("sum(refuShould) as srshould,sum(refundAmount) as sramount,sum(refuSy) as srsy,");
-            sqlSelect.Append("sum(reimShould) as sbx,sum(gross_bx) as sml ");
-            string tblname = "ViewOrderGrossList";
-            DataTable dtSum = data.GetSumMoney(sqlSelect.ToString(), tblname, sqlstr);
-            if (dtSum.Rows.Count > 0)
+            // 订单支付信息
+            DataTable payTbl = To_OrderInfoManager.GetTableInfo("ViewOrderPayMoney", "orderid,money,payAmount,syAmount", "and orderid in (select id from ViewOrder where 1=1 " + sqlstr + ")");
+
+            // 订单收款信息
+            DataTable colTbl = To_OrderInfoManager.GetTableInfo("ViewOrderCollectMoney", "orderid,money,collectAmount,syAmount,collectStatus", "and orderid in (select id from ViewOrder where 1=1 " + sqlstr + ")");
+
+            // 订单退款信息
+            DataTable refuTbl = To_OrderInfoManager.GetTableInfo("ViewOrderRefuMoney", "orderid,money,refundAmount,syAmount", "and orderid in (select id from ViewOrder where 1=1 " + sqlstr + ")");
+
+            // 订单报销信息
+            DataTable reimTbl = To_OrderInfoManager.GetTableInfo("ViewOrderReimMoney", "orderId,totalmoney", "and orderid in (select id from ViewOrder where 1=1 " + sqlstr + ")");
+
+            // 付款信息的key-value
+            Dictionary<string, DataRow> payMap = new Dictionary<string, DataRow>();
+            for (int i = 0; i < payTbl.Rows.Count; i++)
             {
-                DataRow dr = dtSum.Rows[0];
-                scshould.InnerText = Convert.IsDBNull(dr["scshould"]) ? "" : (Convert.ToDouble(dr["scshould"])).ToString("N2");
-                scamount.InnerText = Convert.IsDBNull(dr["scamount"]) ? "" : (Convert.ToDouble(dr["scamount"])).ToString("N2");
-                scsy.InnerText = Convert.IsDBNull(dr["scsy"]) ? "" : (Convert.ToDouble(dr["scsy"])).ToString("N2");
-                spshould.InnerText = Convert.IsDBNull(dr["spshould"]) ? "" : (Convert.ToDouble(dr["spshould"])).ToString("N2");
-                spamount.InnerText = Convert.IsDBNull(dr["spamount"]) ? "" : (Convert.ToDouble(dr["spamount"])).ToString("N2");
-                spsy.InnerText = Convert.IsDBNull(dr["spsy"]) ? "" : (Convert.ToDouble(dr["spsy"])).ToString("N2");
-                srshould.InnerText = Convert.IsDBNull(dr["srshould"]) ? "" : (Convert.ToDouble(dr["srshould"])).ToString("N2");
-                sramount.InnerText = Convert.IsDBNull(dr["sramount"]) ? "" : (Convert.ToDouble(dr["sramount"])).ToString("N2");
-                srsy.InnerText = Convert.IsDBNull(dr["srsy"]) ? "" : (Convert.ToDouble(dr["srsy"])).ToString("N2");
-                sbx.InnerText = Convert.IsDBNull(dr["sbx"]) ? "" : (Convert.ToDouble(dr["sbx"])).ToString("N2");
-                sml.InnerText = Convert.IsDBNull(dr["sml"]) ? "" : (Convert.ToDouble(dr["sml"])).ToString("N2");
+                payMap.Add(payTbl.Rows[i]["orderid"].ToString(), payTbl.Rows[i]);
             }
 
+            // 收款信息的key-value
+            Dictionary<string, DataRow> colMap = new Dictionary<string, DataRow>();
+            for (int i = 0; i < colTbl.Rows.Count; i++)
+            {
+                colMap.Add(colTbl.Rows[i]["orderid"].ToString(), colTbl.Rows[i]);
+            }
+
+            // 退款信息的key-value
+            Dictionary<string, DataRow> refuMap = new Dictionary<string, DataRow>();
+            for (int i = 0; i < refuTbl.Rows.Count; i++)
+            {
+                refuMap.Add(refuTbl.Rows[i]["orderid"].ToString(), refuTbl.Rows[i]);
+            }
+
+            // 报销信息的key-value
+            Dictionary<string, DataRow> reimMap = new Dictionary<string, DataRow>();
+            for (int i = 0; i < reimTbl.Rows.Count; i++)
+            {
+                reimMap.Add(reimTbl.Rows[i]["orderId"].ToString(), reimTbl.Rows[i]);
+            }
+
+            // 合计信息
+            double collectShouldSum = 0, collectAmountSum = 0, collectSySum = 0, payShouldSum = 0, payAmountSum = 0, paySySum = 0, refuShouldSum = 0, refundAmountSum = 0, refuSySum = 0, reimShouldSum = 0, grossBxSum=0;
+
+            // 生成最终的毛利表信息
+            orderTbl.Columns.Add("payShould");
+            orderTbl.Columns.Add("payAmount");
+            orderTbl.Columns.Add("paySy");
+            orderTbl.Columns.Add("collectShould");
+            orderTbl.Columns.Add("collectAmount");
+            orderTbl.Columns.Add("collectSy");
+            orderTbl.Columns.Add("collectStatus");
+            orderTbl.Columns.Add("refuShould");
+            orderTbl.Columns.Add("refundAmount");
+            orderTbl.Columns.Add("refuSy");
+            orderTbl.Columns.Add("reimShould");
+            orderTbl.Columns.Add("gross_bx");
+            for (int i = 0; i < orderTbl.Rows.Count; i++)
+            {
+                string orderId = orderTbl.Rows[i]["id"].ToString();
+                double gross_bx = 0;
+                if (payMap.ContainsKey(orderId))
+                {
+                    DataRow payRow = payMap[orderId];
+
+                    orderTbl.Rows[i]["payShould"] = payRow["money"]; // 应付款
+                    orderTbl.Rows[i]["payAmount"] = payRow["payAmount"]; // 付款合计
+                    orderTbl.Rows[i]["paySy"] = payRow["syAmount"]; // 付款剩余
+                    payShouldSum += Convert.IsDBNull(payRow["money"]) ? 0 : Convert.ToDouble(payRow["money"]);
+                    payAmountSum += Convert.IsDBNull(payRow["payAmount"]) ? 0 : Convert.ToDouble(payRow["payAmount"]);
+                    paySySum += Convert.IsDBNull(payRow["syAmount"]) ? 0 : Convert.ToDouble(payRow["syAmount"]);
+                    gross_bx -= Convert.IsDBNull(payRow["money"]) ? 0 : Convert.ToDouble(payRow["money"]);
+
+                }
+                if (colMap.ContainsKey(orderId))
+                {
+                    DataRow colRow = colMap[orderId];
+
+                    orderTbl.Rows[i]["collectShould"] = colRow["money"]; // 应收款
+                    orderTbl.Rows[i]["collectAmount"] = colRow["collectAmount"]; // 收款合计
+                    orderTbl.Rows[i]["collectSy"] = colRow["syAmount"]; // 收款剩余
+                    orderTbl.Rows[i]["collectStatus"] = colRow["collectStatus"]; // 收款状态
+                    collectShouldSum += Convert.IsDBNull(colRow["money"]) ? 0 : Convert.ToDouble(colRow["money"]);
+                    collectAmountSum += Convert.IsDBNull(colRow["collectAmount"]) ? 0 : Convert.ToDouble(colRow["collectAmount"]);
+                    collectSySum += Convert.IsDBNull(colRow["syAmount"]) ? 0 : Convert.ToDouble(colRow["syAmount"]);
+                    gross_bx += Convert.IsDBNull(colRow["money"]) ? 0 : Convert.ToDouble(colRow["money"]);
+                }
+                if (refuMap.ContainsKey(orderId))
+                {
+                    DataRow refuRow = refuMap[orderId];
+                    orderTbl.Rows[i]["refuShould"] = refuRow["money"]; // 应退款
+                    orderTbl.Rows[i]["refundAmount"] = refuRow["refundAmount"]; // 退款合计
+                    orderTbl.Rows[i]["refuSy"] = refuRow["syAmount"]; // 退款剩余
+                    refuShouldSum += Convert.IsDBNull(refuRow["money"]) ? 0 : Convert.ToDouble(refuRow["money"]);
+                    refundAmountSum += Convert.IsDBNull(refuRow["refundAmount"]) ? 0 : Convert.ToDouble(refuRow["refundAmount"]);
+                    refuSySum += Convert.IsDBNull(refuRow["syAmount"]) ? 0 : Convert.ToDouble(refuRow["syAmount"]);
+                    gross_bx += Convert.IsDBNull(refuRow["money"]) ? 0 : Convert.ToDouble(refuRow["money"]);
+                }
+                if (reimMap.ContainsKey(orderId))
+                {
+                    DataRow reimRow = reimMap[orderId];
+                    orderTbl.Rows[i]["reimShould"] = reimRow["totalmoney"]; // 应报销款
+                    reimShouldSum += Convert.IsDBNull(reimRow["totalmoney"]) ? 0 : Convert.ToDouble(reimRow["totalmoney"]);
+                    gross_bx -= Convert.IsDBNull(reimRow["totalmoney"]) ? 0 : Convert.ToDouble(reimRow["totalmoney"]);
+                }
+                orderTbl.Rows[i]["gross_bx"] = gross_bx;
+                grossBxSum += gross_bx;
+            }
+
+            orderGrossList = orderTbl;
+
+            // 获取排序后的订单信息数据
+            //DataTable dt = data.GetList("ViewOrderGrossList", "id", "desc", AspNetPager1.PageSize, AspNetPager1.CurrentPageIndex, sqlstr);
+            //rpgrossdata.DataSource = dt;
+            //rpgrossdata.DataBind();
+
+            //计算金额合计
+            scshould.InnerText = collectShouldSum.ToString("N2");
+            scamount.InnerText = collectAmountSum.ToString("N2");
+            scsy.InnerText = collectSySum.ToString("N2");
+            spshould.InnerText = payShouldSum.ToString("N2");
+            spamount.InnerText = payAmountSum.ToString("N2");
+            spsy.InnerText = paySySum.ToString("N2");
+            srshould.InnerText = refuShouldSum.ToString("N2");
+            sramount.InnerText = refundAmountSum.ToString("N2");
+            srsy.InnerText = refuSySum.ToString("N2");
+            sbx.InnerText = reimShouldSum.ToString("N2");
+            sml.InnerText = grossBxSum.ToString("N2");
+            stpwth.Stop();
+            TimeSpan ts = stpwth.Elapsed;
+            bindData();
+        }
+
+        /// <summary>
+        /// 绑定数据
+        /// </summary>
+        private void bindData()
+        {
+            int skip = (AspNetPager1.CurrentPageIndex-1) * AspNetPager1.PageSize;
+            int surplus = AspNetPager1.RecordCount - skip;
+            int take = surplus > AspNetPager1.PageSize ? AspNetPager1.PageSize : surplus;
+            
+            DataTable dtnew = orderGrossList.AsEnumerable().Skip(skip).Take(take).CopyToDataTable();
+            
+            rpgrossdata.DataSource = dtnew;
+            rpgrossdata.DataBind();
         }
 
         /// <summary>
@@ -130,7 +269,12 @@ namespace EtNet_Web.Pages.Statistical.Grossprofit
         /// <param name="e"></param>
         protected void AspNetPager1_PageChanged(object sender, EventArgs e)
         {
-            LoadData();
+            Stopwatch stpwth = new Stopwatch();
+            stpwth.Start();
+            bindData();
+            stpwth.Stop();
+            TimeSpan ts = stpwth.Elapsed;
+            Console.WriteLine("time" + ts.TotalSeconds);
         }
 
         /// <summary>
@@ -309,6 +453,10 @@ namespace EtNet_Web.Pages.Statistical.Grossprofit
                     }
                 }
             }
+            else
+            {
+                sqlstr.AppendFormat(getCurYearFilter());
+            }
 
             Session["orderGrossQuery"] = sqlstr;
         }
@@ -339,7 +487,7 @@ namespace EtNet_Web.Pages.Statistical.Grossprofit
             ddlcollectstatus.SelectedIndex = 0;
             ddlRequestDate.SelectedIndex = 0;
             hidDateValue.Value = "";
-            Session["orderGrossQuery"] = "";
+            Session["orderGrossQuery"] = getCurYearFilter();
             LoadData();
         }
 
