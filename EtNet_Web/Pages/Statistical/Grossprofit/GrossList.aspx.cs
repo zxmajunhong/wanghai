@@ -67,8 +67,19 @@ namespace EtNet_Web.Pages.Statistical.Grossprofit
         {
             if (Session["orderGrossQuery"] == null)
             {
-                Session["orderGrossQuery"] = "";
+                Session["orderGrossQuery"] = getCurYearFilter();
             }
+        }
+
+        /// <summary>
+        /// 获取当前年份的筛选条件
+        /// </summary>
+        /// <returns></returns>
+        private string getCurYearFilter()
+        {
+          int year = DateTime.Now.Year;
+          string filter = " and (outTime >= " + year.ToString() + "-01-01 00:00:00 and outTime <=" + year.ToString() + "-12-31 23:59:59)";
+          return filter;
         }
 
         /// <summary>
@@ -267,47 +278,51 @@ namespace EtNet_Web.Pages.Statistical.Grossprofit
             }
             if (ddlRequestDate.SelectedValue.Trim() != "-1")
             {
-                if (hidDateValue.Value.Trim() != string.Empty)
+              if (hidDateValue.Value.Trim() != string.Empty)
+              {
+                string[] list = hidDateValue.Value.Trim().Split(',');
+                if (list[0].Trim() != "" && list[1].Trim() != "")
                 {
-                    string[] list = hidDateValue.Value.Trim().Split(',');
-                    if (list[0].Trim() != "" && list[1].Trim() != "")
-                    {
-                        sqlstr.AppendFormat(" AND ( outTime >= '{0}' AND outTime <= '{1}' ) ", list[0].Trim(), list[1].Trim());
-                    }
-                    else if (list[0].Trim() != "" && list[1].Trim() == "")
-                    {
-                        sqlstr.AppendFormat(" AND outTime >= '{0}' ", list[0].Trim());
-                    }
-                    else
-                    {
-                        sqlstr.AppendFormat(" AND outTime <= '{0}' ", list[1].Trim());
-                    }
+                  sqlstr.AppendFormat(" AND ( outTime >= '{0}' AND outTime <= '{1}' ) ", list[0].Trim(), list[1].Trim());
+                }
+                else if (list[0].Trim() != "" && list[1].Trim() == "")
+                {
+                  sqlstr.AppendFormat(" AND outTime >= '{0}' ", list[0].Trim());
                 }
                 else
                 {
-                    switch (ddlRequestDate.SelectedValue.Trim())
-                    {
-                        case "0"://今天
-                            sqlstr.AppendFormat(" AND outTime = '{0}' ", DateTime.Now.ToString("yyyy-MM-dd"));
-                            break;
-                        case "1"://今天之前
-                            sqlstr.AppendFormat(" AND outTime < '{0}' ", DateTime.Now.ToString("yyyy-MM-dd"));
-                            break;
-                        case "2"://昨天
-                            sqlstr.AppendFormat(" AND outTime = '{0}' ", DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"));
-                            break;
-                        case "3"://7天内
-                            sqlstr.AppendFormat(" AND ( outTime >= '{0}' AND outTime<= '{1}' ) ", DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd"));
-                            break;
-                        case "4"://15天内
-                            sqlstr.AppendFormat(" AND ( outTime >= '{0}' AND outTime<= '{1}' ) ", DateTime.Now.AddDays(-15).ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd"));
-                            break;
-                        case "5"://指定范围
-                            break;
-                        default:
-                            break;
-                    }
+                  sqlstr.AppendFormat(" AND outTime <= '{0}' ", list[1].Trim());
                 }
+              }
+              else
+              {
+                switch (ddlRequestDate.SelectedValue.Trim())
+                {
+                  case "0"://今天
+                  sqlstr.AppendFormat(" AND outTime = '{0}' ", DateTime.Now.ToString("yyyy-MM-dd"));
+                  break;
+                  case "1"://今天之前
+                  sqlstr.AppendFormat(" AND outTime < '{0}' ", DateTime.Now.ToString("yyyy-MM-dd"));
+                  break;
+                  case "2"://昨天
+                  sqlstr.AppendFormat(" AND outTime = '{0}' ", DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"));
+                  break;
+                  case "3"://7天内
+                  sqlstr.AppendFormat(" AND ( outTime >= '{0}' AND outTime<= '{1}' ) ", DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd"));
+                  break;
+                  case "4"://15天内
+                  sqlstr.AppendFormat(" AND ( outTime >= '{0}' AND outTime<= '{1}' ) ", DateTime.Now.AddDays(-15).ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd"));
+                  break;
+                  case "5"://指定范围
+                  break;
+                  default:
+                  break;
+                }
+              }
+            }
+            else
+            {
+              sqlstr.AppendFormat(getCurYearFilter());
             }
 
             Session["orderGrossQuery"] = sqlstr;
