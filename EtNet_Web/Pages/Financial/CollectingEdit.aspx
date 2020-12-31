@@ -5,7 +5,7 @@
 <%--2013年1月7日15:30:42--%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>编辑收款登记</title>
     <script src="../../My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script src="../../Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="../../Scripts/artDialog.js" type="text/javascript"></script>

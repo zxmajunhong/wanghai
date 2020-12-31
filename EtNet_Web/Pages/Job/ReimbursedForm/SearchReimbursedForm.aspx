@@ -333,7 +333,7 @@
                 </tr>
                 <tr>
                     <td style="width: 80px; height: 25px; font-weight: bold; text-align: center">
-                        收款账户
+                        收款单位
                     </td>
                     <td>
                         <asp:Label runat="server" ID="lblbanker"></asp:Label>

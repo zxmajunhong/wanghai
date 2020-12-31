@@ -9,6 +9,7 @@ using System.Data;
 using EtNet_Models;
 using EtNet_BLL.DataPage;
 using System.Text;
+using System.IO;
 
 namespace EtNet_Web.Pages.expense
 {
@@ -128,14 +129,16 @@ namespace EtNet_Web.Pages.expense
             Data data = new Data();
             AspNetPager1.RecordCount = data.GetCount("To_Outcome", sqlstr);
             DataTable dt = data.GetList("To_Outcome", "outComeDate", "desc", AspNetPager1.PageSize, AspNetPager1.CurrentPageIndex, sqlstr);
-            if (dt.Rows.Count > 0)
-            {
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    zje += dt.Rows[i]["outComeMoney"].ToString() == "" ? 0.00 : Convert.ToDouble(dt.Rows[i]["outComeMoney"]);
-                }
-            }
-            this.zje.Text = zje.ToString("0.00");
+            // 获取金额合计
+            double amount = To_OutcomeManager.GetMoneyAmount(sqlstr);
+            //if (dt.Rows.Count > 0)
+            //{
+            //    for (int i = 0; i < dt.Rows.Count; i++)
+            //    {
+            //        zje += dt.Rows[i]["outComeMoney"].ToString() == "" ? 0.00 : Convert.ToDouble(dt.Rows[i]["outComeMoney"]);
+            //    }
+            //}
+            this.zje.Text = amount.ToString("0.00");
             outList.DataSource = dt;
             outList.DataBind();
         }
@@ -151,10 +154,12 @@ namespace EtNet_Web.Pages.expense
             switch (e.CommandName)
             {
                 case "Edit":
-                    Response.Redirect("OutComeUpdate.aspx?id=" + Id);
+                    //Response.Redirect("OutComeUpdate.aspx?id=" + Id);
+                    Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "redirect", "<script>window.open('../../Pages/expense/OutComeUpdate.aspx?id=" + Id + "', '_blank')</script>");
                     break;
                 case "Detail":
-                    Response.Redirect("OutComeDetail.aspx?id=" + Id);
+                    //Response.Redirect("OutComeDetail.aspx?id=" + Id);
+                    Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "redirect", "<script>window.open('../../Pages/expense/OutComeDetail.aspx?id=" + Id + "', '_blank')</script>");
                     break;
                 case "Delete":
                     Del(int.Parse(Id));
@@ -293,6 +298,70 @@ namespace EtNet_Web.Pages.expense
             ddlRequestDate.SelectedIndex = -1;
             Session["query"] = "";
             Load_OutcomeList();
+        }
+
+        protected void ibtexport_Click(object sender, ImageClickEventArgs e)
+        {
+          // excel 头部
+          StringBuilder sb = new StringBuilder();
+          sb.Append("<html xmlns:x=\"urn:schemas-microsoft-com:office:excel\">");
+          sb.Append(" <head>");
+          sb.Append(" <!--[if gte mso 9]><xml>");
+          sb.Append("<x:ExcelWorkbook>");
+          sb.Append("<x:ExcelWorksheets>");
+          sb.Append("<x:ExcelWorksheet>");
+          sb.Append("<x:Name></x:Name>");
+          sb.Append("<x:WorksheetOptions>");
+          sb.Append("<x:Print>");
+          sb.Append("<x:ValidPrinterInfo />");
+          sb.Append(" </x:Print>");
+          sb.Append("</x:WorksheetOptions>");
+          sb.Append("</x:ExcelWorksheet>");
+          sb.Append("</x:ExcelWorksheets>");
+          sb.Append("</x:ExcelWorkbook>");
+          sb.Append("</xml>");
+          sb.Append("<![endif]-->");
+          sb.Append(" </head>");
+          sb.Append("<body>");
+
+          sb.Append("<table><tr><td>支付状态</td><td>付款日期</td><td>付款类别</td><td>收款单位</td><td>付款金额</td><td>付款银行</td><td>所属部门</td><td>制单员</td><td>备注</td></tr>");
+
+          // 生成列表数据
+          string sqlstr = " 1=1 ";
+          sqlstr += Session["query"].ToString();
+          sqlstr += " order by outComeDate desc";
+          DataTable dt = To_OutcomeManager.GetList(sqlstr);
+          for (int i = 0; i < dt.Rows.Count; i++)
+          {
+            sb.Append("<tr>");
+            sb.Append("<td>" + (dt.Rows[i]["outComeStatus"].ToString() == "1" ? "已支付" : "未支付") + "</td>");
+            sb.Append("<td>" + Convert.ToDateTime(dt.Rows[i]["outComeDate"]).ToString("yyyy-MM-dd") + "</td>");
+            sb.Append("<td>" + dt.Rows[i]["outComeItem"] + "</td>");
+            sb.Append("<td>" + dt.Rows[i]["comeUnit"] + "</td>");
+            sb.Append("<td>" + dt.Rows[i]["outComeMoney"] + "</td>");
+            sb.Append("<td>" + dt.Rows[i]["outComeBankName"] + "</td>");
+            sb.Append("<td>" + dt.Rows[i]["outComeDepart"] + "</td>");
+            sb.Append("<td>" + dt.Rows[i]["makeName"] + "</td>");
+            sb.Append("<td>" + dt.Rows[i]["remark"] + "</td>");
+            sb.Append("</tr>");
+          }
+          // 增加合计行
+          sb.Append("<tr><td>合计</td><td></td><td></td><td></td><td>" + this.zje.Text + "</td></tr>");
+
+          // 增加表尾
+          sb.Append("</table></body></html>");
+
+          // 导出
+          StringWriter sw = new StringWriter();
+          sw.WriteLine(sb.ToString());
+          sw.Close();
+          Response.Clear();
+          Response.Charset = "utf-8";
+          System.Web.HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment;filename=其他付款列表.xls");
+          System.Web.HttpContext.Current.Response.ContentType = "application/ms-excel";
+          System.Web.HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
+          System.Web.HttpContext.Current.Response.Write(sw);
+          System.Web.HttpContext.Current.Response.End();
         }
     }
 }

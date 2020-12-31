@@ -97,49 +97,49 @@ fx.Combo.prototype = {
 
 fx.Accordion = Class.create();
 fx.Accordion.prototype = {
-	setOptions: function(options) {
-		this.options = {
-			delay: 100,
-			opacity: false
-		}
-		Object.extend(this.options, options || {});
-	},
+  setOptions: function (options) {
+    this.options = {
+      delay: 100,
+      opacity: false
+    }
+    Object.extend(this.options, options || {});
+  },
 
-	initialize: function(togglers, elements, options) {
-		this.elements = elements;
-		this.setOptions(options);
-		var options = options || '';
-		this.fxa = [];
-		if (options && options.onComplete) options.onFinish = options.onComplete;
-		elements.each(function(el, i){
-			options.onComplete = function(){
-				if (el.offsetHeight > 0) el.style.height = '1%';
-				if (options.onFinish) options.onFinish(el);
-			}
-			this.fxa[i] = new fx.Combo(el, options);
-			this.fxa[i].hide();
-		}.bind(this));
+  initialize: function (togglers, elements, options) {
+    this.elements = elements;
+    this.setOptions(options);
+    var options = options || '';
+    this.fxa = [];
+    if (options && options.onComplete) options.onFinish = options.onComplete;
+    elements.each(function (el, i) {
+      options.onComplete = function () {
+        if (el.offsetHeight > 0) el.style.height = '1%';
+        if (options.onFinish) options.onFinish(el);
+      }
+      this.fxa[i] = new fx.Combo(el, options);
+      this.fxa[i].hide();
+    } .bind(this));
 
-		togglers.each(function(tog, i){
-			if (typeof tog.onclick == 'function') var exClick = tog.onclick;
-			tog.onclick = function(){
-				if (exClick) exClick();
-				this.showThisHideOpen(elements[i]);
-			}.bind(this);
-		}.bind(this));
-	},
+    togglers.each(function (tog, i) {
+      if (typeof tog.onclick == 'function') var exClick = tog.onclick;
+      tog.onclick = function () {
+        if (exClick) exClick();
+        this.showThisHideOpen(elements[i]);
+      } .bind(this);
+    } .bind(this));
+  },
 
-	showThisHideOpen: function(toShow){
-		this.elements.each(function(el, j){
-			if (el.offsetHeight > 0 && el != toShow) this.clearAndToggle(el, j);
-			if (el == toShow && toShow.offsetHeight == 0) setTimeout(function(){this.clearAndToggle(toShow, j);}.bind(this), this.options.delay);
-		}.bind(this));
-	},
+  showThisHideOpen: function (toShow) {
+    this.elements.each(function (el, j) {
+      if (el.offsetHeight > 0 && el != toShow) this.clearAndToggle(el, j);
+      if (el == toShow && toShow.offsetHeight == 0) setTimeout(function () { this.clearAndToggle(toShow, j); } .bind(this), this.options.delay);
+    } .bind(this));
+  },
 
-	clearAndToggle: function(el, i){
-		this.fxa[i].clearTimer();
-		this.fxa[i].toggle();
-	}
+  clearAndToggle: function (el, i) {
+    this.fxa[i].clearTimer();
+    this.fxa[i].toggle();
+  }
 }
 
 var Remember = new Object();

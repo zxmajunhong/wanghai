@@ -1103,16 +1103,16 @@
                                     <td class="clstitleimg" style="width: 15%">
                                         营业部
                                     </td>
-                                    <td class="clstitleimg" style="width: 7%">
+                                    <td class="clstitleimg" style="width: 12%">
                                         联系人
                                     </td>
-                                    <td class="clstitleimg" style="width: 7%">
+                                    <td class="clstitleimg" style="width: 4%">
                                         成人数
                                     </td>
-                                    <td class="clstitleimg" style="width: 7%">
+                                    <td class="clstitleimg" style="width: 4%">
                                         儿童数
                                     </td>
-                                    <td class="clstitleimg" style="width: 7%">
+                                    <td class="clstitleimg" style="width: 4%">
                                         陪同
                                     </td>
                                     <td class="clstitleimg" style="width: 7%">
@@ -1121,7 +1121,7 @@
                                     <td class="clstitleimg" style="width: 7%">
                                         收款状态
                                     </td>
-                                    <td class="clstitleimg" style="width: 15%">
+                                    <td class="clstitleimg" style="width: 19%">
                                         备注
                                     </td>
                                     <td class="clstitleimg" style="width: 5%">
@@ -1182,14 +1182,14 @@
                                 <table id="collecAmount" runat="server" cellspacing="1" cellpadding="1" width="100%"
                                     border="0">
                                     <tr style="height: 20px; font-size: 12px; font-weight: bold;">
-                                        <td style="width: 66%; color: Blue; text-align: left;">
+                                        <td style="width: 57%; color: Blue; text-align: left;">
                                             合计：
                                         </td>
                                         <td style="width: 7%;">
                                             <input type="text" id="lblCollAmount" runat="server" class="lblamount" readonly="readonly"
                                                 value="0.00" />
                                         </td>
-                                        <td style="width: 27%">
+                                        <td style="width: 28%">
                                         </td>
                                     </tr>
                                 </table>
@@ -1220,25 +1220,25 @@
                                     <td class="clstitleimg" style="width: 10%;">
                                         付款类别
                                     </td>
-                                    <td class="clstitleimg" style="width: 10%;">
+                                    <td class="clstitleimg" style="width: 13%;">
                                         联系人
                                     </td>
-                                    <td class="clstitleimg" style="width: 7%;">
+                                    <td class="clstitleimg" style="width: 4%;">
                                         成人数
                                     </td>
-                                    <td class="clstitleimg" style="width: 7%;">
+                                    <td class="clstitleimg" style="width: 4%;">
                                         儿童数
                                     </td>
-                                    <td class="clstitleimg" style="width: 10%;">
+                                    <td class="clstitleimg" style="width: 8%;">
                                         金额
                                     </td>
-                                    <td class="clstitleimg" style="width: 10%;">
+                                    <td class="clstitleimg" style="width: 8%;">
                                         付款申请单
                                     </td>
                                     <td class="clstitleimg" style="width: 10%;">
                                         支付状态
                                     </td>
-                                    <td class="clstitleimg" style="width: 14%">
+                                    <td class="clstitleimg" style="width: 18%">
                                         备注
                                     </td>
                                     <td class="clstitleimg" style="width: 5%;">
@@ -1295,14 +1295,14 @@
                             <table id="payAmount" runat="server" cellspacing="1" cellpadding="1" width="100%"
                                 border="0">
                                 <tr style="height: 20px; font-size: 12px; font-weight: bold;">
-                                    <td style="width: 51%; color: Blue; text-align: left;">
+                                    <td style="width: 49%; color: Blue; text-align: left;">
                                         合计：
                                     </td>
-                                    <td style="width: 10%;">
+                                    <td style="width: 8%;">
                                         <input type="text" id="lblPayAmount" runat="server" class="lblamount" readonly="readonly"
                                             value="0.00" />
                                     </td>
-                                    <td style="width: 39%">
+                                    <td style="width: 42%">
                                     </td>
                                 </tr>
                             </table>

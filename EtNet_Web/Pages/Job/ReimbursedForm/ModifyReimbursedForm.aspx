@@ -739,7 +739,7 @@
                 </tr>
                 <tr>
                     <td class="fieldTitle" style="width: 90px">
-                        收款账户:
+                        收款单位:
                     </td>
                     <td>
                         <input type="text" id="txtbanker" runat="server" class="clsunderline" />

@@ -59,6 +59,11 @@ namespace EtNet_BLL
             return To_CollectingService.GetListByLimit(strWhere, userID, startIndex, endIndex);
         }
 
+        public static double GetAmountTotalByWhere(string strWhere)
+        {
+          return To_CollectingService.GetAmountTotalByWhere(strWhere);
+        }
+
         public static IList<To_Collecting> GetListByPage(string strWhere, int userID, int startIndex, int endIndex)
         {
             return To_CollectingService.GetListByPage(strWhere, userID, startIndex, endIndex);

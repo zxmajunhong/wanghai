@@ -16,6 +16,10 @@ namespace EtNet_Web.Pages.Order
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["login"] == null)
+            {
+              Response.Redirect("~/Login.aspx", true);
+            }
             if (!IsPostBack)
             {
                 LoadSalesman();
@@ -158,8 +162,8 @@ namespace EtNet_Web.Pages.Order
                     {
                         this.adult_sum.InnerHtml = dtsum.Rows[0]["adult_sum"].ToString();
                         this.child_sum.InnerHtml = dtsum.Rows[0]["child_sum"].ToString();
-                        this.with_sum.InnerHtml = dtsum.Rows[0]["with_sum"].ToString();
-                        this.pnum_sum.InnerHtml = dtsum.Rows[0]["pnum_sum"].ToString();
+                        //this.with_sum.InnerHtml = dtsum.Rows[0]["with_sum"].ToString();
+                        //this.pnum_sum.InnerHtml = dtsum.Rows[0]["pnum_sum"].ToString();
                         this.lirun_sum.InnerHtml = dtsum.Rows[0]["lirun_sum"].ToString();
                         this.money_sum.InnerHtml = dtsum.Rows[0]["money_sum"].ToString();
                     }
@@ -169,7 +173,7 @@ namespace EtNet_Web.Pages.Order
             {
                 orderRepeater.DataSource = null;
                 orderRepeater.DataBind();
-                this.adult_sum.InnerHtml = this.child_sum.InnerHtml = this.with_sum.InnerHtml = this.pnum_sum.InnerHtml = this.lirun_sum.InnerHtml = this.money_sum.InnerHtml = "";
+                this.adult_sum.InnerHtml = this.child_sum.InnerHtml = this.lirun_sum.InnerHtml = this.money_sum.InnerHtml = "";
             }
         }
 
@@ -292,11 +296,13 @@ namespace EtNet_Web.Pages.Order
             switch (status)
             {
                 case "未收款":
-                    return "<font color='red'>未收款</font>";
+                    return "<font color='red'>未完成收款</font>";
                 case "完成收款":
                     return "<font color='green'>完成收款</font>";
-                case "部分收款":
-                    return "<font color='blue'>部分收款</font>";
+                //case "部分收款":
+                //    return "<font color='blue'>部分收款</font>";
+              case "部分收款":
+                    return "<font color='red'>未完成收款</font>";
                 default:
                     return "参数错误";
             }
@@ -382,6 +388,11 @@ namespace EtNet_Web.Pages.Order
                     }
                 }
             }
+            // 团队性质的筛选
+            if (this.ddlNatrue.SelectedIndex > 0)
+            {
+              sqlstr.Append(" and natrue='" + this.ddlNatrue.SelectedValue + "'");
+            }
             Session["MyOrderQuery"] = sqlstr;
         }
 
@@ -412,6 +423,36 @@ namespace EtNet_Web.Pages.Order
             this.hidDateValue.Value = "";
             Session["MyOrderQuery"] = "";
             LoadOrderCollect();
+        }
+
+        /// <summary>
+        /// 导出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void imgbtnexport_Click(object sender, ImageClickEventArgs e)
+        {
+          Response.Clear();
+          Response.Buffer = true;
+          Response.Charset = "GB2312";
+          Response.AppendHeader("Content-Disposition", "attachment;filename=" + HttpUtility.UrlEncode("我的订单") + "" + System.DateTime.Now.Date + ".xls");
+
+          // 如果设置为 GetEncoding("GB2312");导出的文件将会出现乱码！！！
+          Response.ContentEncoding = System.Text.Encoding.UTF8;
+          Response.ContentType = "application/ms-excel";//设置输出文件类型为excel文件。
+
+          //关闭 ViewState
+          System.IO.StringWriter tw = new System.IO.StringWriter();//将信息写入字符串
+          System.Web.UI.HtmlTextWriter hw = new System.Web.UI.HtmlTextWriter(tw);//在WEB窗体页上写出一系列连续的HTML特定字符和文本。
+          //此类提供ASP.NET服务器控件在将HTML内容呈现给客户端时所使用的格式化功能
+          //获取control的HTML
+
+          orderlist.RenderControl(hw);//将table中的内容输出到HtmlTextWriter对象中
+
+          // 把HTML写回浏览器
+          Response.Write(tw.ToString());
+          Response.Flush();
+          Response.End();
         }
     }
 }

@@ -4085,6 +4085,11 @@
     <Content Include="kindeditor\asp.net\upload_json.ashx" />
     <Content Include="Pages\Announcement\AnnouncementHandler.ashx" />
     <Content Include="Pages\Information\Information.ashx" />
+    <None Include="ExportToExcel\CountByDepart\公司总部2013年6月 报销明细.xls" />
+    <None Include="ExportToExcel\CountByDepart\宁波部部门 报销明细.xls" />
+    <None Include="ExportToExcel\MonthCount\2012年度报销费用按月度汇总.xls" />
+    <None Include="ExportToExcel\MonthCount\2013年度报销费用按月度汇总.xls" />
+    <None Include="ExportToExcel\MonthCount\2015年度报销费用按月度汇总.xls" />
     <None Include="Images\icons\Thumbs.db" />
     <None Include="Images\Models\Javascripts\lib\.svn\all-wcprops" />
     <None Include="Images\Models\Javascripts\lib\.svn\entries" />

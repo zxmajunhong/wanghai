@@ -224,25 +224,30 @@ namespace EtNet_Web.Pages.Financial
                         msg = "不是本人所做的收款单不能修改";
                         break;
                     }
-                    if (HttpContext.Current.Request.QueryString["page"] != null)
-                    {
-                        int page = int.Parse(HttpContext.Current.Request.QueryString["page"]);
-                        Server.Transfer(string.Format("CollectingEdit.aspx?pageindex=" + page + "&id={0}", cmdArgs[0]));
-
-                    }
-                    else
-                    Server.Transfer(string.Format("CollectingEdit.aspx?id={0}", cmdArgs[0]));
+                    //if (AspNetPager1.CurrentPageIndex > 1)
+                    //{
+                    //  int page = AspNetPager1.CurrentPageIndex;
+                    //  Response.Redirect("CollectingEdit.aspx?pageindex=" + page + "&id=" + e.CommandArgument.ToString());
+                    //}
+                    //else
+                    //{
+                    //  Response.Redirect("collectingEdit.aspx?id=" + e.CommandArgument.ToString());
+                    //}
+                    // 20201228 通过新打开窗口
+                    Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "redirect", "<script>window.open('../../Pages/Financial/CollectingEdit.aspx?id=" + e.CommandArgument.ToString() + "', '_blank')</script>");
                     break;
 
                 case "search":
-                    if (AspNetPager1.CurrentPageIndex > 1)
-                    {
-                        int page = AspNetPager1.CurrentPageIndex;
-                        Response.Redirect("Collecting.aspx?pageindex=" + page + "&id=" + e.CommandArgument.ToString());//参数sqsh判断当前所跳转到预览界面的是申请还是审核
+                    //if (AspNetPager1.CurrentPageIndex > 1)
+                    //{
+                    //    int page = AspNetPager1.CurrentPageIndex;
+                    //    Response.Redirect("Collecting.aspx?pageindex=" + page + "&id=" + e.CommandArgument.ToString());//参数sqsh判断当前所跳转到预览界面的是申请还是审核
 
-                    }
-                    else
-                        Response.Redirect("Collecting.aspx?id=" + e.CommandArgument.ToString());
+                    //}
+                    //else
+                    //    Response.Redirect("Collecting.aspx?id=" + e.CommandArgument.ToString());
+                    // 20201228 通过新窗口打开
+                    Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "redirect", "<script>window.open('../../Pages/Financial/Collecting.aspx?id=" + e.CommandArgument.ToString() + "', '_blank')</script>");
                     break;
                 case "DELETE":
                     if (confirmReceipt)

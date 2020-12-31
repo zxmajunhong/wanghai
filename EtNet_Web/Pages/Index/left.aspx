@@ -15,9 +15,9 @@
     <script src="moo.fx.pack.js" type="text/javascript"></script>
     <script src="left.js" type="text/javascript"></script>
     <script language="javascript" type="text/javascript">
-        window.onload = function () {
-            menulist.init();
-        }
+      window.onload = function () {
+        menulist.init();
+      }
     </script>
 </head>
 <body background="../../Images/Index/leftbg.jpg">
@@ -28,7 +28,7 @@
                     <div id="subPanel" style="display: none;">
                         <h1 class="type">
                             <a href="javascript:void(0);">[#Name]</a></h1>
-                        <div class="content">
+                        <div class="content" ch="[#Height]">
                             <ul class="MM">
                                 [#SubMenu]</ul>
                         </div>

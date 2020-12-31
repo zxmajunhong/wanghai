@@ -403,14 +403,14 @@
                                 <%# Eval("marker") %>
                             </td>
                             <td style="text-align: left; padding-left: 2px;">
-                                <a href='<%# "../Collecting.aspx?id="+Eval("ID")+"&returnUrl=ToClaim/ClaimList.aspx" %>'
+                                <a href='<%# "../Collecting.aspx?id="+Eval("ID")+"&returnUrl=ToClaim/ClaimList.aspx" %>' target="_blank"
                                     title="预览">
                                     <img src="../../../Images/public/searchform.png" alt="预览" />
                                 </a><%--<a id="A1" href='javascript:void(0)' visible='<%# Eval("receiptStatusCode").ToString()=="0" %>' claimid='<%#Eval("ID") %>'
                                     title="认领" onclick='toClaim(this);' runat="server">
                                     <img src="../../../Images/icons/mtgrsp-accept.gif" alt="认领" />
                                 </a>--%>
-                                <a id="A2" href='<%# "ClaimAdd.aspx?id="+Eval("ID") %>' visible='<%# Eval("receiptStatusCode").ToString()=="0" %>' title="认领" runat="server">
+                                <a id="A2" href='<%# "ClaimAdd.aspx?id="+Eval("ID") %>' visible='<%# Eval("receiptStatusCode").ToString()=="0" %>' target="_blank" title="认领" runat="server">
                                     <img src="../../../Images/icons/mtgrsp-accept.gif" alt="认领" />
                                 </a>
                                 <asp:ImageButton ID="BtnCancel" ToolTip="取消认领" CommandName="CANCEL" CommandArgument='<%# Eval("ID") %>'

@@ -85,8 +85,11 @@ H1 a:active
 .content
 {
     width: 182px;
-    height: 30px;
+    /* height: 30px;*/
+    height: 0;
     margin-left: 0px;
+    transition: height 500ms ease-in-out; 
+    overflow: hidden;
 }
 .MM ul
 {

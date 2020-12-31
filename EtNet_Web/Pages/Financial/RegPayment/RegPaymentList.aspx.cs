@@ -83,7 +83,7 @@ namespace EtNet_Web.Pages.Financial.RegPayment
             if (cmdName == "EDIT")//编辑
             {
                 string paymentID = objArg.ToString();
-                Response.Redirect("RegPayment.aspx?payid=" + paymentID);
+                Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "redirect", "<script>window.open('../../../Pages/Financial/RegPayment/RegPayment.aspx?payid=" + paymentID + "', '_blank')</script>");
                 return;
             }
             if (cmdName == "cancel")//撤销
@@ -100,7 +100,7 @@ namespace EtNet_Web.Pages.Financial.RegPayment
             if (cmdName == "Search")//查看
             {
                 string paymentID = objArg.ToString();
-                Response.Redirect("SearchRegPayment.aspx?payid=" + paymentID);
+                Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "redirect", "<script>window.open('../../../Pages/Financial/RegPayment/SearchRegPayment.aspx?payid=" + paymentID + "', '_blank')</script>");
                 return;
             }
 

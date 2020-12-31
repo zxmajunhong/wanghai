@@ -103,7 +103,7 @@ namespace EtNet_Web.Pages.Financial.InvoiceRecord
                 AspNetPager1.NumericButtonCount = sps.Pagecount;
                 AspNetPager1.PageSize = sps.Pageitem;
             }
-            DataTable dt = data.GetList("InvoiceRecord", "makeDate", "asc", AspNetPager1.PageSize, AspNetPager1.CurrentPageIndex, sql);
+            DataTable dt = data.GetList("InvoiceRecord", "makeDate", "desc", AspNetPager1.PageSize, AspNetPager1.CurrentPageIndex, sql);
             this.payRepeater.DataSource = dt;
             this.payRepeater.DataBind();
         }

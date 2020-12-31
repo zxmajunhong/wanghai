@@ -153,7 +153,11 @@
             $("#editpage").click(function () {
                 var strmodal = "dialogHeight=160px;dialogWidth=500px;resizable=no;";
                 strmodal += "status=no";
-                window.showModalDialog("../Common/PageSearchSet.aspx?pagenum=034&dt=" + new Date().toString(), window.self, strmodal);
+                if (window.showModalDialog) {
+                  window.showModalDialog("../Common/PageSearchSet.aspx?pagenum=034&dt=" + new Date().toString(), window.self, strmodal);
+                } else {
+                  window.open("../Common/PageSearchSet.aspx?pagenum=034&dt=" + new Date().toString(),"页面编辑", "width=500,height=160");
+                }
             })
 
             //指定时间
@@ -266,15 +270,32 @@
                     <span id="dateBox"></span>
                     <input id="hidDateValue" type="hidden" runat="server" />
                 </td>
-                <td colspan="4" align="right">
+                <td style="width: 100px">
+                    请选择性质
+                </td>
+                <td>
+                  <asp:DropDownList Width="200px" ID="ddlNatrue" runat="server">
+                    <asp:ListItem Text="——请选择——" Value=""></asp:ListItem>
+                    <asp:ListItem Text="团队" Value="团队"></asp:ListItem>
+                    <asp:ListItem Text="散客" Value="散客"></asp:ListItem>
+                    <asp:ListItem Text="代订业务" Value="代订业务"></asp:ListItem>
+                    <asp:ListItem Text="其他" Value="其他"></asp:ListItem>
+                  </asp:DropDownList>
+                </td>
+                <td colspan="2" align="right">
                     <asp:ImageButton runat="server" ID="imgbtnsearch" ImageUrl="~/Images/Button/btn_search.jpg"
                         OnClick="imgbtnsearch_Click" />
                     <asp:ImageButton runat="server" ID="mgbtnreset" ImageUrl="~/Images/Button/btn_reset.jpg"
                         OnClick="mgbtnreset_Click" />
+                    <asp:ImageButton runat="server" ID="imgbtnexport" 
+                      ImageUrl="~/Images/Button/btn_export.jpg" onclick="imgbtnexport_Click" />
                 </td>
             </tr>
             <tr>
                 <td style="vertical-align: middle;" colspan="6">
+                <table id="orderlist" runat="server" style="width: 100%">
+                  <tr>
+                    <td style="vertical-align: middle;">
                     <table class="clsdata" cellspacing="1" cellpadding="0" width="100%">
                         <tr>
                             <th class="clstitleimg" style="width: 7%;">
@@ -292,12 +313,12 @@
                             <th class="clstitleimg" style="width: 4%;">
                                 儿童数
                             </th>
-                            <th class="clstitleimg" style="width: 4%;">
+                            <%--<th class="clstitleimg" style="width: 4%;">
                                 陪同
                             </th>
                             <th class="clstitleimg" style="width: 4%;">
                                 人数
-                            </th>
+                            </th>--%>
                             <% if (ViewState["lirun"].ToString() == "1")
                                { %>
                             <th class="clstitleimg" style="width: 4%;">
@@ -319,19 +340,19 @@
                             <th class="clstitleimg" style="width: 5%;">
                                 未收金额
                             </th>
-                            <th class="clstitleimg" style="width: 5%;">
+                            <%--<th class="clstitleimg" style="width: 5%;">
                                 状态
                             </th>
                             <th class="clstitleimg" style="width: 5%;">
                                 结算状态
-                            </th>
+                            </th>--%>
                             <th class="clstitleimg" style="width: 5%;">
                                 收款状态
                             </th>
-                            <th class="clstitleimg" style="width: 9%;">
+                            <th class="clstitleimg" style="width: 23%;">
                                 收款单位名称
                             </th>
-                            <th class="clstitleimg" style="width: 5%;">
+                            <th class="clstitleimg" style="width: 9%;">
                                 联系人
                             </th>
                             <th class="clstitleimg" style="width: 5%;">
@@ -359,12 +380,12 @@
                                         <td>
                                             <%# Eval("childNum")%>
                                         </td>
-                                        <td>
+                                        <%--<td>
                                             <%# Eval("withNum")%>
                                         </td>
                                         <td>
                                             <%#Eval("pNum") %>
-                                        </td>
+                                        </td>--%>
                                         <% if (ViewState["lirun"].ToString() == "1")
                                            { %>
                                         <td>
@@ -386,12 +407,12 @@
                                         <td>
                                             <%# GetSymoney(Eval("money"),Eval("collectAmount"))%>
                                         </td>
-                                        <td>
+                                        <%--<td>
                                             <%# OrderStatus(Eval("savestatus").ToString()) %>
                                         </td>
                                         <td>
                                             <%#AuditsStatus(Eval("auditstatus").ToString())%>
-                                        </td>
+                                        </td>--%>
                                         <td>
                                             <%# CollectStatus(Eval("collectStatus").ToString()) %>
                                         </td>
@@ -416,8 +437,8 @@
                             <td></td>
                             <td id="adult_sum" runat="server"></td>
                             <td id="child_sum" runat="server"></td>
-                            <td id="with_sum" runat="server"></td>
-                            <td id="pnum_sum" runat="server"></td>
+                            <%--<td id="with_sum" runat="server"></td>
+                            <td id="pnum_sum" runat="server"></td>--%>
                             <% if (ViewState["lirun"].ToString() == "1")
                                { %>
                             <td id="lirun_sum" runat="server"></td>
@@ -426,8 +447,8 @@
                             <td></td>
                             <td id="money_sum" runat="server"></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
+                            <%--<td></td>
+                            <td></td>--%>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -435,6 +456,10 @@
                             <td></td>
                         </tr>
                     </table>
+                    </td>
+                  </tr>
+                </table>
+                    
                 </td>
             </tr>
         </table>

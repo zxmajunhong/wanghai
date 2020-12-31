@@ -400,7 +400,7 @@ namespace EtNet_Web.Pages.Order
                     }
                     break;
                 case "Detial":
-                    Response.Redirect("OrderDetial.aspx?id=" + Convert.ToInt32(e.CommandArgument));
+                    Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "redirect", "<script>window.open('../../Pages/Order/OrderDetial.aspx?id=" + Convert.ToInt32(e.CommandArgument) + "', '_blank')</script>");
                     break;
                 case "Audit":
                     if (orderinfo != null)
@@ -649,7 +649,8 @@ namespace EtNet_Web.Pages.Order
                 }
                 else
                 {
-                    Response.Redirect("UpdateOrder.aspx?id=" + Convert.ToInt32(id));
+                    Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "redirect", "<script>window.open('../../Pages/Order/UpdateOrder.aspx?id=" + Convert.ToInt32(id) + "', '_blank')</script>");
+                    //Response.Redirect("UpdateOrder.aspx?id=" + Convert.ToInt32(id));
                 }
             }
         }

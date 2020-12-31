@@ -254,10 +254,10 @@ namespace EtNet_Web.Pages.Job
             //}
             if (this.hidsort.Value != "" && this.hidsort.Value != "1")
             {
-                if (this.hidsort.Value=="3")
-                {
-                    strsql += " AND operatstatus='未审批' ";
-                }
+                //if (this.hidsort.Value=="3")
+                //{
+                //    strsql += " AND operatstatus='未审批' ";
+                //}
                 strsql += " AND sort='0" + (int.Parse(this.hidsort.Value) - 1).ToString() + "' ";
             }
 
@@ -563,7 +563,7 @@ namespace EtNet_Web.Pages.Job
         {
             pages.Visible = true;
             DataTable tbl = Exists();
-            string str = " AND auditoperat = '未操作' AND reviewerid =" + ((EtNet_Models.LoginInfo)Session["login"]).Id + " AND (nowreviewer ='T' OR nowreviewer='p') ";
+            string str = " AND reviewerid =" + ((EtNet_Models.LoginInfo)Session["login"]).Id + " AND (nowreviewer ='T' OR nowreviewer='p') ";
             str += Session["query"].ToString();
 
             int pitem = int.Parse(tbl.Rows[0]["pageitem"].ToString());

@@ -294,7 +294,7 @@
                     <ItemTemplate>
                         <tr>
                             <td>
-                                <a href="CollectDetailList.aspx?unit=<%# Eval("cusId")%>" title='<%# CustD(Eval("cusId"))%>'>
+                                <a href="CollectDetailList.aspx?unit=<%# Eval("cusId")%>" title='<%# CustD(Eval("cusId"))%>' target="_blank">
                                     <%# Eval("cusName")%></a>
                             </td>
                             <td>

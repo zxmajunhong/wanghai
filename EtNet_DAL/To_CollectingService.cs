@@ -342,6 +342,22 @@ namespace EtNet_DAL
             return DBHelper.GetDataSet(strSql.ToString());
         }
 
+        public static double GetAmountTotalByWhere(string strWhere)
+        {
+          StringBuilder strSql = new StringBuilder();
+          strSql.Append("SELECT SUM(receiptAmount) as amount FROM View_Renling where 1=1");
+          strSql.Append(strWhere);
+          DataTable dt = DBHelper.GetDataSet(strSql.ToString());
+          if (dt.Rows.Count > 0)
+          {
+            return Convert.ToDouble(dt.Rows[0]["amount"]);
+          }
+          else
+          {
+            return 0;
+          }
+        }
+
         /// <summary>
         /// 获取记录总数
         /// </summary>

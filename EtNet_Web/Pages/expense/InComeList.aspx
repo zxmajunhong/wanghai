@@ -268,6 +268,8 @@
                         OnClick="imgbtnsearch_Click" />
                     <asp:ImageButton runat="server" ID="mgbtnreset" ImageUrl="~/Images/Button/btn_reset.jpg"
                         OnClick="mgbtnreset_Click" />
+                    <asp:ImageButton runat="server" ID="ibtexport" 
+                      ImageUrl="~/Images/Button/btn_export.jpg" onclick="ibtexport_Click" />
                 </td>
             </tr>
         </table>

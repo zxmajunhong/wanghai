@@ -54,5 +54,19 @@ namespace EtNet_BLL
         {
             return To_IncomeService.Update(income);
         }
+
+        public static double GetMoneyAmount(string sqlstr)
+        {
+          string sql = "select sum(outComeMoney) as amount from To_Outcome where 1=1 " + sqlstr;
+          DataTable dt = DBHelper.GetDataSet(sql);
+          if (dt.Rows.Count > 0)
+          {
+            return Convert.ToDouble(dt.Rows[0]["amount"]);
+          }
+          else
+          {
+            return 0;
+          }
+        }
     }
 }

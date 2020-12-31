@@ -76,6 +76,15 @@ namespace EtNet_Web.Pages.Order {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hidDateValue;
         
         /// <summary>
+        /// ddlNatrue 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlNatrue;
+        
+        /// <summary>
         /// imgbtnsearch 控件。
         /// </summary>
         /// <remarks>
@@ -92,6 +101,24 @@ namespace EtNet_Web.Pages.Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton mgbtnreset;
+        
+        /// <summary>
+        /// imgbtnexport 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgbtnexport;
+        
+        /// <summary>
+        /// orderlist 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable orderlist;
         
         /// <summary>
         /// orderRepeater 控件。
@@ -119,24 +146,6 @@ namespace EtNet_Web.Pages.Order {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell child_sum;
-        
-        /// <summary>
-        /// with_sum 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell with_sum;
-        
-        /// <summary>
-        /// pnum_sum 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell pnum_sum;
         
         /// <summary>
         /// lirun_sum 控件。

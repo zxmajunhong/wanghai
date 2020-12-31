@@ -110,5 +110,19 @@ namespace EtNet_DAL
 
             return model;
         }
+
+        public static double GetMoneyAmount(string sqlstr)
+        {
+          string sql = "select sum(comeMoney) as amount from To_Income where 1=1 " + sqlstr;
+          DataTable dt = DBHelper.GetDataSet(sql);
+          if (dt.Rows.Count > 0)
+          {
+            return Convert.ToDouble(dt.Rows[0]["amount"]);
+          }
+          else
+          {
+            return 0;
+          }
+        }
     }
 }

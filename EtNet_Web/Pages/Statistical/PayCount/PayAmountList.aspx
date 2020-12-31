@@ -289,7 +289,7 @@
                     <ItemTemplate>
                         <tr>
                             <td>
-                                <a href="PayDetailList.aspx?unit=<%# Eval("factid")%>" >
+                                <a href="PayDetailList.aspx?unit=<%# Eval("factid")%>" target="_blank">
                                     <%# Eval("supName")%></a>
                             </td>
                             <td>

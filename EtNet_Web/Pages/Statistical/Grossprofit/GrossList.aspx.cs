@@ -78,7 +78,7 @@ namespace EtNet_Web.Pages.Statistical.Grossprofit
         private string getCurYearFilter()
         {
           int year = DateTime.Now.Year;
-          string filter = " and (outTime >= " + year.ToString() + "-01-01 00:00:00 and outTime <=" + year.ToString() + "-12-31 23:59:59)";
+          string filter = " and (outTime >= '" + year.ToString() + "-01-01 00:00:00' and outTime <= '" + year.ToString() + "-12-31 23:59:59')";
           return filter;
         }
 
@@ -88,7 +88,7 @@ namespace EtNet_Web.Pages.Statistical.Grossprofit
         private void LoadData()
         {
             string sqlstr = " and iscancel = 'N' ";
-            sqlstr += this.cbxFileShow.Checked ? "" : " and fileStatus=0 ";
+            sqlstr += this.cbxFileShow.Checked ? " " : " and fileStatus=0 ";
             sqlstr += Session["orderGrossQuery"].ToString();
             LoginInfo login = (LoginInfo)Session["login"];
             SearchPageSet sps = SearchPageSetManager.getSearchPageSetByLoginId(login.Id, 036);

@@ -171,7 +171,8 @@
                     }
                 },
                 callback:{
-                  onClick: function(event,treeId,treeNode){         
+                  onClick: function(event,treeId,treeNode){      
+                      console.log('id', treeNode.id);   
                      $("#hidsort").val(treeNode.id);                
                      $("#ibtnAuditSerch").click();
                   }

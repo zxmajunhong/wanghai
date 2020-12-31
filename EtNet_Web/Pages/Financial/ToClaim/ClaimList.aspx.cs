@@ -52,14 +52,16 @@ namespace EtNet_Web.Pages.Financial.ToClaim
             }
             DataTable data = To_CollectingManager.GetListByLimit(FilterSql + " AND confirmReceipt=1 ", login.Id, AspNetPager1.StartRecordIndex, AspNetPager1.EndRecordIndex);
             //计算金额合计（所有未收款的金额合计）
-            double amount = 0;
-            foreach (DataRow dr in data.Rows) 
-            {
-                if (dr["receiptStatusCode"] == null || dr["receiptStatusCode"].ToString() == "0") 
-                {
-                    amount += Convert.ToDouble(dr["receiptAmount"]);
-                } 
-            }
+            //double amount = 0;
+            //foreach (DataRow dr in data.Rows) 
+            //{
+            //    if (dr["receiptStatusCode"] == null || dr["receiptStatusCode"].ToString() == "0") 
+            //    {
+            //        amount += Convert.ToDouble(dr["receiptAmount"]);
+            //    } 
+            //}
+            //this.lblmoneyAmount.Text = "￥" + amount.ToString("N");
+            double amount = To_CollectingManager.GetAmountTotalByWhere(FilterSql + " and confirmReceipt=1 ");
             this.lblmoneyAmount.Text = "￥" + amount.ToString("N");
             RpList.DataSource = data;
             RpList.DataBind();
@@ -278,7 +280,7 @@ namespace EtNet_Web.Pages.Financial.ToClaim
                     BindRpList();
                     break;
                 case "EDIT":
-                    Response.Redirect("ClaimEdit.aspx?collectId=" + collectId.ToString() + "&&claimId=" + claim.Rows[0]["id"].ToString());
+                    Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "redirect", "<script>window.open('../../Pages/Financial/ToClaim/ClaimEdit.aspx?collectId=" + collectId.ToString() + "&&claimId=" + claim.Rows[0]["id"].ToString() + "', '_blank')</script>");
                     break;
                 default:
                     break;

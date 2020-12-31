@@ -349,6 +349,9 @@
                                     操作员
                                 </th>
                                 <th class="clstitleimg" width="90">
+                                    毛利
+                                </th>
+                                <th class="clstitleimg" width="90">
                                     应收团款
                                 </th>
                                 <th class="clstitleimg" width="90">
@@ -381,9 +384,6 @@
                                 <th class="clstitleimg" width="90">
                                     报销金额
                                 </th>
-                                <th class="clstitleimg" width="90">
-                                    毛利
-                                </th>
                             </tr>
                             <tbody>
                                 <asp:Repeater ID="rpgrossdata" runat="server">
@@ -413,6 +413,9 @@
                                             </td>
                                             <td>
                                                 <%# Eval("teamNum")%>
+                                            </td>
+                                            <td>
+                                                <%# Eval("gross_bx")%>
                                             </td>
                                             <td>
                                                 <%# Eval("inputer")%>
@@ -452,9 +455,6 @@
                                             </td>
                                             <td class="simpletooltip left-bottom pastelblue" title="<%# getReimDetail(Eval("id")) %>">
                                                 <%# Eval("reimShould")%>
-                                            </td>
-                                            <td>
-                                                <%# Eval("gross_bx")%>
                                             </td>
                                         </tr>
                                     </ItemTemplate>

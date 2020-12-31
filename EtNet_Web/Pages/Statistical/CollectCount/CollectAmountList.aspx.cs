@@ -75,7 +75,7 @@ namespace EtNet_Web.Pages.Statistical.CollectCount
                 AspNetPager1.NumericButtonCount = sps.Pagecount;
                 AspNetPager1.PageSize = sps.Pageitem;
             }
-            DataTable dt = data.GetList(tablename, "cusId", "desc", AspNetPager1.PageSize, AspNetPager1.CurrentPageIndex, sqlstr);
+            DataTable dt = data.GetList(tablename, "syAmount", "desc", AspNetPager1.PageSize, AspNetPager1.CurrentPageIndex, sqlstr);
             rptdata.DataSource = dt;
             rptdata.DataBind();
 

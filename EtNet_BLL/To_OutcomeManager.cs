@@ -44,5 +44,15 @@ namespace EtNet_BLL
         {
             return To_OutcomeService.UpdateStatus(Id, status);
         }
+
+        public static double GetMoneyAmount(string sqlstr)
+        {
+          return To_OutcomeService.GetMoneyAmount(sqlstr);
+        }
+
+        public static System.Data.DataTable GetList(string sqlstr)
+        {
+          return To_OutcomeService.GetList(sqlstr);
+        }
     }
 }
